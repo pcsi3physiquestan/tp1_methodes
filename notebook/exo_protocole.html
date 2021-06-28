@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. (Travail) Etude préliminaire &#8212; Méthodes expérimentales - Introduction</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_protocole.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. (TP) Application à l’étude des ultrasons." href="exo_estimation.html" />
+    <link rel="prev" title="Méthodes expérimentales" href="../tp1_methodes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_protocole.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="(Travail) Etude préliminaire" />
+<meta property="og:description" content="(Travail) Etude préliminaire  Conception  Vous devrez proposer un protocole expérimental rédigé sur le sujet suivant. On rappelle que vous devez présenter le bu" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Méthodes expérimentales - Introduction</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tp1_methodes.html">
+   Méthodes expérimentales
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mesure unique
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. (Travail) Etude préliminaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_estimation.html">
+   2. (TP) Application à l’étude des ultrasons.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mesures multiples
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_graphique.html">
+   1. (Travail) Application au tracé graphique
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/exo_protocole.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_protocole.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_protocole.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conception">
+   1.1. Conception
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#materiel-a-disposition">
+     1.1.1. Matériel à disposition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#description-particuliere">
+     1.1.2. Description particulière
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#emetteur-ultrason">
+       1.1.2.1. Emetteur Ultrason
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#carte-d-acquisition-foxy">
+       1.1.2.2. Carte d’acquisition Foxy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reponse">
+     1.1.3. Réponse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-de-reponse">
+     1.1.4. Exemple de réponse
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyse-des-mesurandes-directs">
+   1.2. Analyse des mesurandes directs.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="travail-etude-preliminaire">
+<h1><span class="section-number">1. </span>(Travail) Etude préliminaire<a class="headerlink" href="#travail-etude-preliminaire" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conception">
+<h2><span class="section-number">1.1. </span>Conception<a class="headerlink" href="#conception" title="Permalink to this headline">¶</a></h2>
+<p>Vous devrez proposer un protocole expérimental rédigé sur le sujet suivant. On rappelle que vous devez présenter le <strong>but de l’expérience</strong>, le <strong>principe de mesure</strong> puis le <strong>mode opératoire</strong> de façon <strong>precise et concise</strong>.</p>
+<div class="section" id="materiel-a-disposition">
+<h3><span class="section-number">1.1.1. </span>Matériel à disposition<a class="headerlink" href="#materiel-a-disposition" title="Permalink to this headline">¶</a></h3>
+<p>On désire mesurer la célérité des ultrasons dans l’air. On dispose du matériel suivant :</p>
+<ul class="simple">
+<li><p>Emetteur ultrason capable d’envoyer un signal ultrason en continu ou par salves.</p></li>
+<li><p>2 Récepteurs ultrasons transformant le signal reçu en une tension mesurable.</p></li>
+<li><p>Carte d’acquisition et ordinateur permettant la mesure des signaux émis et reçus par l’émetteur et le récepteur (moyennant branchements) et l’affichage de leur évolution dans le temps.</p></li>
+<li><p>Alimentation continue 0-15V permettant d’alimenter l’émetteur</p></li>
+<li><p>Réglet</p></li>
+<li><p>Fils de connexion pour la carte d’acquisition et le générateur.</p></li>
+</ul>
+</div>
+<div class="section" id="description-particuliere">
+<h3><span class="section-number">1.1.2. </span>Description particulière<a class="headerlink" href="#description-particuliere" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="emetteur-ultrason">
+<h4><span class="section-number">1.1.2.1. </span>Emetteur Ultrason<a class="headerlink" href="#emetteur-ultrason" title="Permalink to this headline">¶</a></h4>
+<p>L’<a class="reference internal" href="#emetteur"><span class="std std-ref">emetteur ultrason</span></a> est un boitier créant lui même le signal électrique alimentant une cellule piezoélectrique qui émet ainsi un signal ultrason. Il nécessite d’être alimenté par une tension continue de 15V.</p>
+<div class="figure align-center" id="emetteur">
+<img alt="../_images/emetteur.jpg" src="../_images/emetteur.jpg" />
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Emetteur ultrasons</span><a class="headerlink" href="#emetteur" title="Permalink to this image">¶</a></p>
+</div>
+<p>Les réglages possibles sont :</p>
+<ul class="simple">
+<li><p>Une molette permet d’ajuster la <strong>fréquence</strong> (autour de 40kHz) : La cellule piézo-électrique est un filtre passe-bande, il y a donc une fréquence pour laquelle l’émission sera maximale. Cette molette permet de la régler (placer un récepteur juste devant l’émetteur et ajuster la fréquence jusqu’à ce que le signal reçu soit maximal).</p></li>
+<li><p>Passage en émission continu ou par salve. Il existe deux types de salves :</p>
+<ul>
+<li><p>salves courtes : durée d’émission de 1ms puis 4ms de silence</p></li>
+<li><p>salves longues : durée d’émission de 6ms puis 4ms de silence</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="carte-d-acquisition-foxy">
+<h4><span class="section-number">1.1.2.2. </span>Carte d’acquisition Foxy<a class="headerlink" href="#carte-d-acquisition-foxy" title="Permalink to this headline">¶</a></h4>
+<p>A compléter</p>
+</div>
+</div>
+<div class="section" id="reponse">
+<h3><span class="section-number">1.1.3. </span>Réponse<a class="headerlink" href="#reponse" title="Permalink to this headline">¶</a></h3>
+<p>Rédiger par écrit le protocole expérimental. <strong>N’oubliez pas un schéma de votre montage.</strong></p>
+</div>
+<div class="section" id="exemple-de-reponse">
+<h3><span class="section-number">1.1.4. </span>Exemple de réponse<a class="headerlink" href="#exemple-de-reponse" title="Permalink to this headline">¶</a></h3>
+<p><strong>Après</strong> avoir réfléchi au protocole, vous pouvez afficher une proposition de protocole (<em>croix à droite</em>).</p>
+<div class="toggle docutils container">
+<p><strong>But</strong> : On veut déterminer la célérité des ultrasons dans l’air.</p>
+<p><strong>Principe</strong> : La célérité <span class="math notranslate nohighlight">\(c\)</span> du son permet de relier la distance <span class="math notranslate nohighlight">\(d\)</span> parcourue par l’onde au temps de parcours <span class="math notranslate nohighlight">\(\Delta t\)</span> :
+$<span class="math notranslate nohighlight">\(c = \frac{d}{\Delta t}\)</span>$</p>
+<p><strong>Mode opératoire</strong> :</p>
+<ol class="simple">
+<li><p>On réalise le montage ci-après. L’émetteur emet des salves courtes.</p></li>
+<li><p>On mesure les positions <span class="math notranslate nohighlight">\(d_1\)</span> et <span class="math notranslate nohighlight">\(d_2\)</span> des deux récepteurs sur le réglet puis la distance <span class="math notranslate nohighlight">\(d = d_2 - d_1\)</span>.</p></li>
+<li><p>On acquiert en même temps les signaux reçus par les deux récepteurs.</p></li>
+<li><p>On peut déterminer les instants <span class="math notranslate nohighlight">\(t_1\)</span> correspondant au maximum du signal reçu par le récepteur 1 et <span class="math notranslate nohighlight">\(t_2\)</span> correspondant au maximum du signal reçu par le récepteur 2. Le temps de vol est estimé par <span class="math notranslate nohighlight">\(\Delta t = t_2 - t_1\)</span>.</p></li>
+<li><p>On détermine alors la célérité du son par <span class="math notranslate nohighlight">\(c = \frac{d}{\Delta t}\)</span></p></li>
+</ol>
+<p><img alt="Montage d'étude de c" src="../_images/ultrasons_protocole_2.jpg" /></p>
+<p><strong>Remarques:</strong></p>
+<ul class="simple">
+<li><p>L’utilisation d’un schéma du montage est indispensable à chaque protocole.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-mesurandes-directs">
+<h2><span class="section-number">1.2. </span>Analyse des mesurandes directs.<a class="headerlink" href="#analyse-des-mesurandes-directs" title="Permalink to this headline">¶</a></h2>
+<p>Dans cette étude préliminaire, vous devez déterminer <em>précisément</em> quels sont les mesurandes <em>directs</em> que vous allez mesurer durant la manipulation.</p>
+<p>On rappelle que ce sont ceux que vous mesurez directement durant la manipulation, sans devoir réaliser un calcul supplémentaire.</p>
+<p>Vous préciserez au moyen de quel instrument sont mesurés chaque grandeur.</p>
+<p>Après avoir réfléchi à la question, vous pouvez la réponse en cliquant sur la croix à droite.</p>
+<div class="toggle docutils container">
+<p>Pour mesurer la célérité du son, on doit, dans le protocole choisi mesurer le temps de vol <span class="math notranslate nohighlight">\(\Delta t\)</span> et la distance entre les récepteurs <span class="math notranslate nohighlight">\(d\)</span>. <strong>Mais ce ne sont pas ces grandeurs qu’on mesure directement.</strong></p>
+<p>En réalité, on va mesurer directement :</p>
+<ul class="simple">
+<li><p>La position <span class="math notranslate nohighlight">\(d_1\)</span>. Elle sera repérée sur le réglet.</p></li>
+<li><p>La position <span class="math notranslate nohighlight">\(d_2\)</span>. Elle sera repérée sur le réglet.</p></li>
+<li><p>Le temps du maximum du signal émis <span class="math notranslate nohighlight">\(t_1\)</span>. Il sera lu graphiquement sur le tracé temporel du signal (logiciel sur ordinateur).</p></li>
+<li><p>Le temps du maximum du signal émis <span class="math notranslate nohighlight">\(t_2\)</span>. Il sera lu graphiquement sur le tracé temporel du signal (logiciel sur ordinateur).</p></li>
+</ul>
+<p>Cette phase de réflexion est importante car on confond souvent les grandeurs qu’on veut avoir et les grandeurs qu’on mesure directement. De plus, c’est sur CES grandeurs qu’on va faire un bilan des sources d’incertitudes.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../tp1_methodes.html" title="previous page">Méthodes expérimentales</a>
+    <a class='right-next' id="next-link" href="exo_estimation.html" title="next page"><span class="section-number">2. </span>(TP) Application à l’étude des ultrasons.</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. (Travail) Application au tracé graphique &#8212; Méthodes expérimentales - Introduction</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_graphique.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. (TP) Application à l’étude des ultrasons." href="exo_estimation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_graphique.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="(Travail) Application au tracé graphique" />
+<meta property="og:description" content="(Travail) Application au tracé graphique  Analyse de la relation durée-distance  Votre travail  Vous aller devoir exploiter non plus une mesure de temps de vol " />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Méthodes expérimentales - Introduction</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tp1_methodes.html">
+   Méthodes expérimentales
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mesure unique
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_protocole.html">
+   1. (Travail) Etude préliminaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_estimation.html">
+   2. (TP) Application à l’étude des ultrasons.
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mesures multiples
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. (Travail) Application au tracé graphique
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/notebook/exo_graphique.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_graphique.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_graphique.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyse-de-la-relation-duree-distance">
+   1.1. Analyse de la relation durée-distance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#votre-travail">
+     1.1.1. Votre travail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-est-a-vous">
+     1.1.2. C’est à vous.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#codage">
+       1.1.2.1. Codage
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#premiere-analyse-des-donnees">
+       1.1.2.2. Première analyse des données.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#travail-determination-des-valeurs-de-la-celerite">
+   1.2. (Travail) Détermination des valeurs de la célérité
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#travail-a-faire">
+     1.2.1. Travail à faire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyse-des-donnees">
+     1.2.2. Analyse des données
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Ce notebook est <strong>à compléter chez vous en avance</strong> sous sa forme notebook (Téléchargement grâce au bouton en haut). Vous modifierez les listes des données expérimentales en TP.</p>
+<div class="section" id="travail-application-au-trace-graphique">
+<h1><span class="section-number">1. </span>(Travail) Application au tracé graphique<a class="headerlink" href="#travail-application-au-trace-graphique" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="analyse-de-la-relation-duree-distance">
+<h2><span class="section-number">1.1. </span>Analyse de la relation durée-distance<a class="headerlink" href="#analyse-de-la-relation-duree-distance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="votre-travail">
+<h3><span class="section-number">1.1.1. </span>Votre travail<a class="headerlink" href="#votre-travail" title="Permalink to this headline">¶</a></h3>
+<p>Vous aller devoir exploiter non plus une mesure de temps de vol pour une distance émetteur-récepteur mais regrouper l’ensemble de résultats de mesure
+des groupes de TP pour affiner votre mesure de la célérité.</p>
+<p>Pour pouvoir tester votre code chez vous en avance, des données expérimentales <strong>fictives</strong> sont entrées dans la cellule suivante.
+En TP, vous récupérerez l’ensemble des données de mesure des différents binômes et modifierez ces listes. Il suffira ensuite d’éxecutez toutes les cellules
+suivantes avec le programme que vous aurez écrit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Pensez à l&#39;alias de la bibliothèques numpy pour la suite.</span>
+<span class="sd">&quot;&quot;&quot;Données expérimentales</span>
+
+<span class="sd">Pensez à entre les 4 listes dans le même ordre.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>  <span class="c1"># Liste des distances E-R (en cm - évitez les nombres trop petits)</span>
+<span class="n">ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur d</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">240</span><span class="p">])</span>  <span class="c1"># Liste des temps de vol (en ms)</span>
+<span class="n">udt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.4</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur Delta t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La syntaxe et les fonctions de la cellule ci-dessous ne sont pas à connaître. Vous verrez simplement une façon
+d’afficher de manière esthétique le tableau des mesures.
+Observez surtout le choix des arrondis dans les commentaires (il y a un problème pour le 10 de udt).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">donnees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;d(cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="p">],</span>  <span class="c1"># On arrondi à 10^(-2) pour avoir la même précision que pour l&#39;incertitude</span>
+        <span class="s2">&quot;u(d)(cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ud</span><span class="p">],</span>  <span class="c1">#On garde deux chiffres significatifs sur l&#39;incertitude</span>
+        <span class="s2">&quot;Delta t(ms)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dt</span><span class="p">],</span>  <span class="c1"># Même principe</span>
+        <span class="s2">&quot;u(Delta t)(ms)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">udt</span><span class="p">]</span>  <span class="c1"># Même principe, il y a juste un problème pour 10</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">donnees</span><span class="o">.</span><span class="n">style</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_62ec0_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >d(cm)</th>        <th class="col_heading level0 col1" >u(d)(cm)</th>        <th class="col_heading level0 col2" >Delta t(ms)</th>        <th class="col_heading level0 col3" >u(Delta t)(ms)</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_62ec0_level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_62ec0_row0_col0" class="data row0 col0" >10.00</td>
+                        <td id="T_62ec0_row0_col1" class="data row0 col1" >0.15</td>
+                        <td id="T_62ec0_row0_col2" class="data row0 col2" >30.0</td>
+                        <td id="T_62ec0_row0_col3" class="data row0 col3" >5.4</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_62ec0_row1_col0" class="data row1 col0" >20.00</td>
+                        <td id="T_62ec0_row1_col1" class="data row1 col1" >0.26</td>
+                        <td id="T_62ec0_row1_col2" class="data row1 col2" >60.0</td>
+                        <td id="T_62ec0_row1_col3" class="data row1 col3" >5.8</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_62ec0_row2_col0" class="data row2 col0" >30.00</td>
+                        <td id="T_62ec0_row2_col1" class="data row2 col1" >0.16</td>
+                        <td id="T_62ec0_row2_col2" class="data row2 col2" >90.0</td>
+                        <td id="T_62ec0_row2_col3" class="data row2 col3" >4.6</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_62ec0_row3_col0" class="data row3 col0" >40.00</td>
+                        <td id="T_62ec0_row3_col1" class="data row3 col1" >0.26</td>
+                        <td id="T_62ec0_row3_col2" class="data row3 col2" >120.0</td>
+                        <td id="T_62ec0_row3_col3" class="data row3 col3" >6.3</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_62ec0_row4_col0" class="data row4 col0" >50.00</td>
+                        <td id="T_62ec0_row4_col1" class="data row4 col1" >0.14</td>
+                        <td id="T_62ec0_row4_col2" class="data row4 col2" >150.0</td>
+                        <td id="T_62ec0_row4_col3" class="data row4 col3" >8.3</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_62ec0_row5_col0" class="data row5 col0" >60.00</td>
+                        <td id="T_62ec0_row5_col1" class="data row5 col1" >0.12</td>
+                        <td id="T_62ec0_row5_col2" class="data row5 col2" >180.0</td>
+                        <td id="T_62ec0_row5_col3" class="data row5 col3" >10.0</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row6" class="row_heading level0 row6" >6</th>
+                        <td id="T_62ec0_row6_col0" class="data row6 col0" >70.00</td>
+                        <td id="T_62ec0_row6_col1" class="data row6 col1" >0.41</td>
+                        <td id="T_62ec0_row6_col2" class="data row6 col2" >210.0</td>
+                        <td id="T_62ec0_row6_col3" class="data row6 col3" >5.1</td>
+            </tr>
+            <tr>
+                        <th id="T_62ec0_level0_row7" class="row_heading level0 row7" >7</th>
+                        <td id="T_62ec0_row7_col0" class="data row7 col0" >80.00</td>
+                        <td id="T_62ec0_row7_col1" class="data row7 col1" >0.32</td>
+                        <td id="T_62ec0_row7_col2" class="data row7 col2" >240.0</td>
+                        <td id="T_62ec0_row7_col3" class="data row7 col3" >3.2</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</div>
+<div class="section" id="c-est-a-vous">
+<h3><span class="section-number">1.1.2. </span>C’est à vous.<a class="headerlink" href="#c-est-a-vous" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="codage">
+<h4><span class="section-number">1.1.2.1. </span>Codage<a class="headerlink" href="#codage" title="Permalink to this headline">¶</a></h4>
+<p>C’est à vous de coder maintenant la cellule suivante est entièrement à votre disposition. Vous devez obtenir en sortie
+le graphique représentant <span class="math notranslate nohighlight">\(\Delta t\)</span> en fonction <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>Pensez bien :</p>
+<ul class="simple">
+<li><p>aux bibliothèques utiles</p></li>
+<li><p>aux légendes du graphiques</p></li>
+<li><p>aux barres d’incertitudes</p></li>
+</ul>
+<p><em>On rappelle que les vecteurs contenant les données ont déjà été créé dans la première cellule.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Votre code</span>
+
+<span class="sd">A vous de coder le graphique à tracer.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Votre code\n\nA vous de coder le graphique à tracer.\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="premiere-analyse-des-donnees">
+<h4><span class="section-number">1.1.2.2. </span>Première analyse des données.<a class="headerlink" href="#premiere-analyse-des-donnees" title="Permalink to this headline">¶</a></h4>
+<p>Lorsque vous aurez obtenu le graphique des données expérimentales réelles, analysez le :</p>
+<ul class="simple">
+<li><p>Que cherche-t-on à observer ?</p></li>
+<li><p>Observe-t-on ce qu’on attend ?</p></li>
+<li><p>Si oui, tant mieux, sinon essayez de comprendre où sont les problèmes.</p></li>
+</ul>
+<p>Ecrire alors le compte-rendu de votre analyse.</p>
+</div>
+</div>
+</div>
+<div class="section" id="travail-determination-des-valeurs-de-la-celerite">
+<h2><span class="section-number">1.2. </span>(Travail) Détermination des valeurs de la célérité<a class="headerlink" href="#travail-determination-des-valeurs-de-la-celerite" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="travail-a-faire">
+<h3><span class="section-number">1.2.1. </span>Travail à faire<a class="headerlink" href="#travail-a-faire" title="Permalink to this headline">¶</a></h3>
+<p>Cette partie va nous amener à estimer la célérité pour chaque couple de mesure. On réalisera ensuite la moyenne des mesures.</p>
+<p>Dans cette partie, le script :</p>
+<ol class="simple">
+<li><p>réalise pour chaque jeu de données une simulation de Monte-Carlo pour estimer la célérité et son incertitude.</p>
+<ul class="simple">
+<li><p>On simule N = 100000 fois pour chaque jeu de données. Une explication (à comprendre et retenir) sur la méthode est donnée dans le script.</p></li>
+<li><p>Nous sommes dans le cas où on ne connaît pas la distribution associées aux données de vos camarades. On supposera que les distributions pour <span class="math notranslate nohighlight">\(\Delta t\)</span> et <span class="math notranslate nohighlight">\(d\)</span> sont <strong>gaussiennes</strong>.</p></li>
+</ul>
+</li>
+<li><p>(vous) estime la célérité par une moyenne de tous les résultats et l’incertitude avec la formule pour une estimation de type A.</p>
+<ul class="simple">
+<li><p>On utilise une moyenne arithmétique pour calculer <span class="math notranslate nohighlight">\(c_{mes}\)</span> et son incertitude</p></li>
+<li><p>L’estimation de l’incertitude est alors (k est le nombre de mesure de c obtenues):</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ u(C) = \frac{\sigma(echantillons)}{\sqrt{N}}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\sigma(echantillons)\)</span> est l’écart-type du vecteur échantillons.</p>
+<ol class="simple">
+<li><p>Représenter sur un graphique chaque valeur de c pour chaque jeu de données avec une barre d’incertitude et la moyenne calculée.</p>
+<ul class="simple">
+<li><p>Mettre le numéro des binômes en abscisses (pas d’incertitude là dessus !)</p></li>
+<li><p>Représentez la moyenne par une droite donc par deux points <span class="math notranslate nohighlight">\([0, c_{mes}], [k+1, {c_mes}]\)</span>. A vous de voir comment l’implémenter.</p></li>
+<li><p>(Facultatif : Pour aller plus loin) Ajoutez deux droites à <span class="math notranslate nohighlight">\(c_{mes} - u(c)\)</span> et <span class="math notranslate nohighlight">\(c_{mes} + u(c)\)</span> en pointillés</p></li>
+</ul>
+</li>
+<li><p>Représenter sur un autre graphique les écarts normalisés à la moyenne des mesures pour vérifier la cohérence des mesures entre elles.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;A vous de coder. On importe pour vous la bibliothèque random </span>
+<span class="sd">et la bibliothèque matplotlib.pyplot</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">On vous montre comment créer un tableau de taille N*k</span>
+<span class="sd">où chaque colonne simule les tirages d_i du groupe i suivant une distribution choisie.</span>
+<span class="sd">Il suffit pour cela d&#39;entrer un vecteur de valeurs pour la moyenne et l&#39;incertitude</span>
+<span class="sd">au lieu de rentrer une valeur seule.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># Pour obtenir le nombre de mesures réaliser : la taille de la liste d.</span>
+<span class="n">d_sim</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ud</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>  <span class="c1"># Il faut préciser la taille du tableau N lignes et k colonnes</span>
+<span class="n">dt_sim</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">udt</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Calcul des c et de pour chaque binomes : moyenne de chaque colonne.</span>
+<span class="sd">La fonction np.mean possède une option np.mean(..., axis=0) qui permet justement de faire des moyennes que par colonnes.</span>
+<span class="sd">Note : np.mean(..., axis=1) fait des moyennes par lignes.</span>
+
+<span class="sd">Même principe pour l&#39;écart-type avec l&#39;utilisation de l&#39;option axis=0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">c_binomes</span> <span class="o">=</span> <span class="n">d_sim</span> <span class="o">/</span> <span class="n">dt_sim</span>  <span class="c1"># Calcul de c pour chaque échantillons et chaque binomes de TP.</span>
+<span class="n">c_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">c_binomes</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Moyenne par colonne : on a la célérité de chaque binôme.</span>
+<span class="n">uc_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">c_binomes</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Ecart-type par colonne :on a l&#39;incertitude de chaque binôme.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">C&#39;est à vous maintenant de :</span>
+<span class="sd">- calculer la moyenne des célérités de chaque binomes</span>
+<span class="sd">- calculer l&#39;incertitude-type sur la célérité au moyen de la formule donnée dans l&#39;énoncé.</span>
+<span class="sd">N&#39;hésitez pas à afficher les variables c_sim et uc_sim pour voir leur contenu.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># A modifier</span>
+<span class="n">uc0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># A modifier</span>
+
+<span class="s2">&quot;Calcul des écarts normalisés à la moyenne pour chaque binomes&quot;</span>
+<span class="n">en_binomes</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># A modifier</span>
+
+
+
+<span class="sd">&quot;&quot;&quot;Tracé graphique</span>
+<span class="sd">On montre comment tracer les valeurs de célérité avec leurs incertitude et les écarts normalisés dans la même fenêtre.</span>
+
+<span class="sd">Seule nouveauté, le tracé de la valeur moyenne. Voici l&#39;instruction à placer (ax représente les axes):</span>
+<span class="sd">ax.plot([0, k+1], [c_mes, c_mes], color=&#39;red&#39;, label=&quot;Moyenne des mesures&quot;)</span>
+<span class="sd">où c_mes est la variable contenant la valeur de la célérité estimée par moyenne.</span>
+
+<span class="sd">Modifier les lignes quand c&#39;est nécessaire.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Fenêtre graphique avec deux zones de tracé.</span>
+<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># Donner un titre au graphique</span>
+
+<span class="sd">&quot;&quot;&quot;Tracé des valeurs de célérité avec incertitude pour chaque groupe&quot;&quot;&quot;</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Binôme&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Célérité(m/s)&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">c_sim</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">uc_sim</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valeurs estimées&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;Tracé des écarts normalisés&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;Pensez à afficher la légende&quot;&quot;&quot;</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Binôme&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;EN&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">en_binomes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ecarts normalisés&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;Calcul de l&#39;écart normalisé entre c0 et la valeur données dans la littérature&quot;&quot;&quot;</span>
+<span class="n">en_c</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># A modifier</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">en_c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exo_graphique_13_0.png" src="../_images/exo_graphique_13_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-donnees">
+<h3><span class="section-number">1.2.2. </span>Analyse des données<a class="headerlink" href="#analyse-des-donnees" title="Permalink to this headline">¶</a></h3>
+<p>Réalisez une analyse des valeurs obtenues pour chaque groupe puis de la célérité moyenne en comparaison avec la valeur donnée dans la littérature.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="exo_estimation.html" title="previous page"><span class="section-number">2. </span>(TP) Application à l’étude des ultrasons.</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By C. Lacpatia<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

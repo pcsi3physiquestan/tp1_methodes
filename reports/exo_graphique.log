@@ -1,0 +1,109 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+"""A vous de coder. On importe pour vous la bibliothèque random 
+et la bibliothèque matplotlib.pyplot
+"""
+import numpy.random as rd
+import matplotlib.pyplot as plt
+
+"""
+On vous montre comment créer un tableau de taille N*k
+où chaque colonne simule les tirages d_i du groupe i suivant une distribution choisie.
+Il suffit pour cela d'entrer un vecteur de valeurs pour la moyenne et l'incertitude
+au lieu de rentrer une valeur seule.
+"""
+N = 100000
+k = len(d)  # Pour obtenir le nombre de mesures réaliser : la taille de la liste d.
+d_sim = rd.normal(d, ud, (N, k))  # Il faut préciser la taille du tableau N lignes et k colonnes
+dt_sim = rd.normal(dt, udt, (N, k))
+
+"""
+Calcul des c et de pour chaque binomes : moyenne de chaque colonne.
+La fonction np.mean possède une option np.mean(..., axis=0) qui permet justement de faire des moyennes que par colonnes.
+Note : np.mean(..., axis=1) fait des moyennes par lignes.
+
+Même principe pour l'écart-type avec l'utilisation de l'option axis=0
+"""
+c_binomes = d_sim / dt_sim  # Calcul de c pour chaque échantillons et chaque binomes de TP.
+c_sim = np.mean(c_binomes, axis = 0)  # Moyenne par colonne : on a la célérité de chaque binôme.
+uc_sim = np.std(c_binomes, ddof=1, axis=0)  # Ecart-type par colonne :on a l'incertitude de chaque binôme.
+
+"""
+C'est à vous maintenant de :
+- calculer la moyenne des célérités de chaque binomes
+- calculer l'incertitude-type sur la célérité au moyen de la formule donnée dans l'énoncé.
+N'hésitez pas à afficher les variables c_sim et uc_sim pour voir leur contenu.
+"""
+c0 = 0  # A modifier
+uc0 = 0  # A modifier
+
+"Calcul des écarts normalisés à la moyenne pour chaque binomes"
+en_binomes = 0  # A modifier
+
+
+
+"""Tracé graphique
+On montre comment tracer les valeurs de célérité avec leurs incertitude et les écarts normalisés dans la même fenêtre.
+
+Seule nouveauté, le tracé de la valeur moyenne. Voici l'instruction à placer (ax représente les axes):
+ax.plot([0, k+1], [c_mes, c_mes], color='red', label="Moyenne des mesures")
+où c_mes est la variable contenant la valeur de la célérité estimée par moyenne.
+
+Modifier les lignes quand c'est nécessaire.
+"""
+f, ax = plt.subplots(1, 2, figsize=(9, 6))  # Fenêtre graphique avec deux zones de tracé.
+f.suptitle('')  # Donner un titre au graphique
+
+"""Tracé des valeurs de célérité avec incertitude pour chaque groupe"""
+ax[0].set_xlabel('Binôme')
+ax[0].set_ylabel('Célérité(m/s)')
+
+ax[0].errorbar(np.arange(k), c_sim, yerr=uc_sim, label="Valeurs estimées", marker='+', linestyle='', color='red')
+ax[0].legend()
+
+"""Tracé des écarts normalisés"""
+
+"""Pensez à afficher la légende"""
+ax[1].set_xlabel('Binôme')
+ax[1].set_ylabel('EN')
+
+ax[1].plot(en_binome, label="Ecarts normalisés", marker='+', linestyle='', color='blue')
+ax[1].legend()
+
+plt.show()
+
+"""Calcul de l'écart normalisé entre c0 et la valeur données dans la littérature"""
+en_c = 0 # A modifier
+print(en_c)
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-4-16fab5d27835>[0m in [0;36m<module>[0;34m[0m
+[1;32m     66[0m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mset_ylabel[0m[0;34m([0m[0;34m'EN'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     67[0m [0;34m[0m[0m
+[0;32m---> 68[0;31m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mplot[0m[0;34m([0m[0men_binome[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"Ecarts normalisés"[0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m'+'[0m[0;34m,[0m [0mlinestyle[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'blue'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     69[0m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     70[0m [0;34m[0m[0m
+
+[0;31mNameError[0m: name 'en_binome' is not defined
+NameError: name 'en_binome' is not defined
+
