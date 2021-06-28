@@ -46,9 +46,6 @@ Les réglages possibles sont :
     * salves courtes : durée d'émission de 1ms puis 4ms de silence
     * salves longues : durée d'émission de 6ms puis 4ms de silence
 
-#### Carte d'acquisition Foxy
-A compléter
-
 +++
 
 ### Réponse

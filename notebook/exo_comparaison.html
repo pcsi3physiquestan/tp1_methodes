@@ -5,67 +5,69 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Méthodes expérimentales &#8212; Méthodes expérimentales - Introduction</title>
+    <title>2. (TP) Complément : Utilisation d’une régression linéaire. &#8212; Méthodes expérimentales - Introduction</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/tp1_methodes.html" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. (Travail) Etude préliminaire" href="notebook/exo_protocole.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_comparaison.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. (TP) Application au tracé graphique" href="exo_graphique.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/tp1_methodes.html" />
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_comparaison.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Méthodes expérimentales" />
-<meta property="og:description" content="Méthodes expérimentales  Dans cette séquence, vous aller apprendre à :  Organiser une manipulation autour des trois axes : protocole, observation, exploitation." />
+<meta property="og:title"       content="(TP) Complément : Utilisation d’une régression linéaire." />
+<meta property="og:description" content="(TP) Complément : Utilisation d’une régression linéaire.  Cette partie est entièrement libre. Vous allez utiliser la cellule suivante pour réaliser une régressi" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -81,20 +83,20 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+<a class="navbar-brand text-wrap" href="../index.html">
   
   
   <h1 class="site-logo" id="site-title">Méthodes expérimentales - Introduction</h1>
   
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tp1_methodes.html">
    Méthodes expérimentales
   </a>
  </li>
@@ -106,12 +108,12 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="notebook/exo_protocole.html">
+  <a class="reference internal" href="exo_protocole.html">
    1. (Travail) Etude préliminaire
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="notebook/exo_estimation.html">
+  <a class="reference internal" href="exo_estimation.html">
    2. (TP) Application à l’étude des ultrasons.
   </a>
  </li>
@@ -121,14 +123,14 @@
   Mesures multiples
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="notebook/exo_graphique.html">
+  <a class="reference internal" href="exo_graphique.html">
    1. (TP) Application au tracé graphique
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebook/exo_comparaison.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    2. (TP) Complément : Utilisation d’une régression linéaire.
   </a>
  </li>
@@ -171,11 +173,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="_sources/tp1_methodes.ipynb"><button type="button"
+            href="../_sources/notebook/exo_comparaison.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/tp1_methodes.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_comparaison.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -200,10 +202,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tp1_methodes.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_comparaison.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
+                    src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -225,20 +227,16 @@
         
               <div>
                 
-  <div class="section" id="methodes-experimentales">
-<h1>Méthodes expérimentales<a class="headerlink" href="#methodes-experimentales" title="Permalink to this headline">¶</a></h1>
-<p>Dans cette séquence, vous aller apprendre à :</p>
-<ol class="simple">
-<li><p>Organiser une manipulation autour des trois axes : protocole, observation, exploitation.</p></li>
-<li><p>Estimer l’incertitude d’un mesurande</p></li>
-<li><p>Rendre compte de résultat sous différentes formes.</p></li>
-<li><p>Utiliser certaines méthodes courantes d’exploitation des données</p></li>
-</ol>
-<p>Cette séquence sera basée sur la détermination de la célérité des ultrasons dans l’air à température et pression ambiante.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <p>Vous allez maintenant mettre en oeuvre l’utilisation de l’écart normalisé et de la régression linéaire pour comparer les valeurs expérimentales avec la valeur théorique.</p>
+<div class="section" id="tp-complement-utilisation-d-une-regression-lineaire">
+<h1><span class="section-number">2. </span>(TP) Complément : Utilisation d’une régression linéaire.<a class="headerlink" href="#tp-complement-utilisation-d-une-regression-lineaire" title="Permalink to this headline">¶</a></h1>
+<p>Cette partie est entièrement libre. Vous allez utiliser la cellule suivante pour réaliser une régression linéaire à partir de la relation <span class="math notranslate nohighlight">\(d = c \Delta t\)</span>. Vous devrez :</p>
+<ul class="simple">
+<li><p>Vérifier la compatibilité avec le modèle linéaire</p></li>
+<li><p>Estimer ainsi la célérité et son incertitude au moyen d’une simulation de Monte-Carlo.</p></li>
+<li><p>Comparer la valeur estimée aux attentes.</p></li>
+</ul>
+<p>Pensez à utiliser <a class="reference external" href="https://pcsi3physiquestan.github.io/tp_incertitude/notebook/exemple.html">l’exemple complet</a> pour écrire le code adéquat.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -254,7 +252,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./."
+            path: "./notebook"
         },
         predefinedOutput: true
     }
@@ -266,7 +264,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="notebook/exo_protocole.html" title="next page"><span class="section-number">1. </span>(Travail) Etude préliminaire</a>
+    <a class='left-prev' id="prev-link" href="exo_graphique.html" title="previous page"><span class="section-number">1. </span>(TP) Application au tracé graphique</a>
 
         </div>
         
@@ -289,7 +287,7 @@
     </div>
 
     
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

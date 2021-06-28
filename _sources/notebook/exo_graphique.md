@@ -14,11 +14,10 @@ kernelspec:
   name: python3
 ---
 
-Ce notebook est __à compléter chez vous en avance__ sous sa forme notebook (Téléchargement grâce au bouton en haut). Vous modifierez les listes des données expérimentales en TP.
 
 +++
 
-# (Travail) Application au tracé graphique
+# (TP) Application au tracé graphique
 
 +++
 
@@ -30,9 +29,8 @@ Ce notebook est __à compléter chez vous en avance__ sous sa forme notebook (T�
 Vous aller devoir exploiter non plus une mesure de temps de vol pour une distance émetteur-récepteur mais regrouper l'ensemble de résultats de mesure
 des groupes de TP pour affiner votre mesure de la célérité.
 
-Pour pouvoir tester votre code chez vous en avance, des données expérimentales __fictives__ sont entrées dans la cellule suivante.
-En TP, vous récupérerez l'ensemble des données de mesure des différents binômes et modifierez ces listes. Il suffira ensuite d'éxecutez toutes les cellules
-suivantes avec le programme que vous aurez écrit.
+Pour pouvoir tester votre code, des données expérimentales __fictives__ sont entrées dans la cellule suivante.
+En TP, vous récupérerez l'ensemble des données de mesure des différents binômes et modifierez ces listes.
 
 ```{code-cell}
 import numpy as np  # Pensez à l'alias de la bibliothèques numpy pour la suite.
