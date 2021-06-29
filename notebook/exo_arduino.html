@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. (TP) Complément : Utilisation d’une régression linéaire. &#8212; Méthodes expérimentales - Introduction</title>
+    <title>1. Célérité du son dans l’air - Réalisation de l’expérience &#8212; Méthodes expérimentales - Introduction</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,21 +54,20 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_comparaison.html" />
+    <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_arduino.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Célérité du son dans l’air - Réalisation de l’expérience" href="exo_arduino.html" />
-    <link rel="prev" title="1. (TP) Application au tracé graphique" href="exo_graphique.html" />
+    <link rel="prev" title="2. (TP) Complément : Utilisation d’une régression linéaire." href="exo_comparaison.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_comparaison.html" />
+<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_arduino.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="(TP) Complément : Utilisation d’une régression linéaire." />
-<meta property="og:description" content="(TP) Complément : Utilisation d’une régression linéaire.  Cette partie est entièrement libre. Vous allez utiliser la cellule suivante pour réaliser une régressi" />
+<meta property="og:title"       content="Célérité du son dans l’air - Réalisation de l’expérience" />
+<meta property="og:description" content="Célérité du son dans l’air - Réalisation de l’expérience  Obtention des données expérimentales  Principe et protocole  On désire mesurer la célérité du son dans" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -124,14 +123,14 @@
   Mesures multiples
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="exo_graphique.html">
    1. (TP) Application au tracé graphique
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exo_comparaison.html">
    2. (TP) Complément : Utilisation d’une régression linéaire.
   </a>
  </li>
@@ -141,9 +140,9 @@
   Automatisation des mesures
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="exo_arduino.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    1. Célérité du son dans l’air - Réalisation de l’expérience
   </a>
  </li>
@@ -186,11 +185,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="../_sources/notebook/exo_comparaison.ipynb"><button type="button"
+            href="../_sources/notebook/exo_arduino.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/exo_comparaison.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebook/exo_arduino.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -215,7 +214,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_comparaison.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_arduino.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -232,6 +231,38 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obtention-des-donnees-experimentales">
+   1.1. Obtention des données expérimentales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#principe-et-protocole">
+     1.1.1. Principe et protocole
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programmation-de-la-carte-arduino">
+     1.1.2. Programmation de la carte Arduino.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traitement-des-donnees">
+   1.2. Traitement des données.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -240,16 +271,40 @@
         
               <div>
                 
-  <p>Vous allez maintenant mettre en oeuvre l’utilisation de l’écart normalisé et de la régression linéaire pour comparer les valeurs expérimentales avec la valeur théorique.</p>
-<div class="section" id="tp-complement-utilisation-d-une-regression-lineaire">
-<h1><span class="section-number">2. </span>(TP) Complément : Utilisation d’une régression linéaire.<a class="headerlink" href="#tp-complement-utilisation-d-une-regression-lineaire" title="Permalink to this headline">¶</a></h1>
-<p>Cette partie est entièrement libre. Vous allez utiliser la cellule suivante pour réaliser une régression linéaire à partir de la relation <span class="math notranslate nohighlight">\(d = c \Delta t\)</span>. Vous devrez :</p>
-<ul class="simple">
-<li><p>Vérifier la compatibilité avec le modèle linéaire</p></li>
-<li><p>Estimer ainsi la célérité et son incertitude au moyen d’une simulation de Monte-Carlo.</p></li>
-<li><p>Comparer la valeur estimée aux attentes.</p></li>
-</ul>
-<p>Pensez à utiliser <a class="reference external" href="https://pcsi3physiquestan.github.io/tp_incertitude/notebook/exemple.html">l’exemple complet</a> pour écrire le code adéquat.</p>
+  <div class="section" id="celerite-du-son-dans-l-air-realisation-de-l-experience">
+<h1><span class="section-number">1. </span>Célérité du son dans l’air - Réalisation de l’expérience<a class="headerlink" href="#celerite-du-son-dans-l-air-realisation-de-l-experience" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="obtention-des-donnees-experimentales">
+<h2><span class="section-number">1.1. </span>Obtention des données expérimentales<a class="headerlink" href="#obtention-des-donnees-experimentales" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="principe-et-protocole">
+<h3><span class="section-number">1.1.1. </span>Principe et protocole<a class="headerlink" href="#principe-et-protocole" title="Permalink to this headline">¶</a></h3>
+<p>On désire mesurer la célérité du son dans l’air un grand nombre de fois. On va pour cela utiliser un émetteur récepteur ultrasons et une carte Arduino.</p>
+<p><em>Principe de mesure</em> : On place un obstacle à une distance <span class="math notranslate nohighlight">\(d\)</span> de l’émetteur-récepteur puis on va mesurer le temps de vol <span class="math notranslate nohighlight">\(t\)</span>. On peut obtenir la célérité du son grâce à la relation <span class="math notranslate nohighlight">\(c = \frac{2d}{t}\)</span>.</p>
+<p>Pour plus de précision, on va réaliser des mesures pour plusieurs distances <span class="math notranslate nohighlight">\(d\)</span> et on réalisera une régression linéaire en traçant <span class="math notranslate nohighlight">\(t\)</span> en fonction de <span class="math notranslate nohighlight">\(d\)</span>. La pente permettra de remonter à la célérité du son. Le montage réalisé est donné ci-dessous (on place l’obstacle devant l’émetteur).</p>
+<p><img alt="Montage de mesure de la célérité du son" src="../_images/celerite_son_montage.png" /></p>
+<p><em>La LED sert simplement pour avertir que l’émetteur récepteur est en train de faire une mesure</em></p>
+<p>La carte Arduino sera programmée pour renvoyer N mesures du temps de vol (N est choisi par l’expérimentateur).</p>
+</div>
+<div class="section" id="programmation-de-la-carte-arduino">
+<h3><span class="section-number">1.1.2. </span>Programmation de la carte Arduino.<a class="headerlink" href="#programmation-de-la-carte-arduino" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Télécharger le <strong>dossier</strong> depuis le site de la classe <strong>sur l’ordinateur du laboratoire</strong>. Ouvrir le logiciel Arduino et ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">vitesse_son_2.ino</span></code>.</p></li>
+<li><p>Réaliser le montage ci-dessus (bien respecter le numéro des bornes de branchement) et brancher la carte Arduino à l’ordinateur.</p></li>
+<li><p>Sélectionner le port associé à sa carte (<code class="docutils literal notranslate"><span class="pre">Outils</span> <span class="pre">&gt;</span> <span class="pre">Port</span></code>). Noter le nom de la carte, vous en aurez besoin plus tard. Téléverser alors le programme dans Arduino. Le microcontrolleur est en attente.</p></li>
+<li><p>Ouvrir dans <code class="docutils literal notranslate"><span class="pre">pyzo</span></code> le fichier <code class="docutils literal notranslate"><span class="pre">celerite_son_acquisition.py</span></code>. Ce programme va communiquer avec Arduino pour configurer l’acquisition puis enregistrer les données. Changer le nom du port (ligne 7).</p></li>
+<li><p>Exécuter le programme. Entrer un nom de fichier clair (éviter les espaces) et choisir 1000 échantillons.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="traitement-des-donnees">
+<h2><span class="section-number">1.2. </span>Traitement des données.<a class="headerlink" href="#traitement-des-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Créer un fichier de script dans pyzo pour :</p>
+<ol class="simple">
+<li><p>Importer les données dans un vecteur. Utiliser le code expliqué <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python/notebook/import_file.html">ici</a></p></li>
+<li><p>Tracer l’histogramme des mesures et vérifier qu’il n’y a pas visuellement de mesures aberrantes.</p></li>
+<li><p>Si c’est le cas, supprimer les données aberrantes en appliquant le processus de sélection présenté <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science_2.html#celerite-des-ultrasons">ici</a>.</p></li>
+<li><p>Déterminer alors la célérité associée à chaque temps de vol puis la célérité moyenne et son écart-type. Comparer cette valeur à la valeur attendue.</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -277,8 +332,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="exo_graphique.html" title="previous page"><span class="section-number">1. </span>(TP) Application au tracé graphique</a>
-    <a class='right-next' id="next-link" href="exo_arduino.html" title="next page"><span class="section-number">1. </span>Célérité du son dans l’air - Réalisation de l’expérience</a>
+    <a class='left-prev' id="prev-link" href="exo_comparaison.html" title="previous page"><span class="section-number">2. </span>(TP) Complément : Utilisation d’une régression linéaire.</a>
 
         </div>
         
