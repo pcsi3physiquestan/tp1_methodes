@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Célérité du son dans l’air - Réalisation de l’expérience &#8212; Méthodes expérimentales - Introduction</title>
+    <title>5. Utilisation d’un microcontrolleur (1h) &#8212; Méthodes expérimentales - Introduction</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,24 +54,15 @@
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_arduino.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2. (TP) Complément : Utilisation d’une régression linéaire." href="exo_comparaison.html" />
-
+    <link rel="prev" title="4. (TP) Utilisation d’une régression linéaire. (1h)" href="exo_comparaison.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_arduino.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Célérité du son dans l’air - Réalisation de l’expérience" />
-<meta property="og:description" content="Célérité du son dans l’air - Réalisation de l’expérience  Obtention des données expérimentales  Principe et protocole  On désire mesurer la célérité du son dans" />
-
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -83,30 +71,30 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Méthodes expérimentales - Introduction</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Méthodes expérimentales - Introduction</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../tp1_methodes.html">
    Méthodes expérimentales
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Mesure unique
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="exo_protocole.html">
    1. (Travail) Etude préliminaire
@@ -114,40 +102,41 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="exo_estimation.html">
-   2. (TP) Application à l’étude des ultrasons.
+   2. (TP) Application à l’étude des ultrasons. (1h)
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Mesures multiples
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="exo_graphique.html">
-   1. (TP) Application au tracé graphique
+   3. (TP) Application au tracé graphique (1h)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="exo_comparaison.html">
-   2. (TP) Complément : Utilisation d’une régression linéaire.
+   4. (TP) Utilisation d’une régression linéaire. (1h)
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
-  Automatisation des mesures
+  Complément - Automatisation des mesures
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Célérité du son dans l’air - Réalisation de l’expérience
+   5. Utilisation d’un microcontrolleur (1h)
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -200,12 +189,12 @@
 
             <!-- Source interaction buttons -->
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -231,38 +220,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#obtention-des-donnees-experimentales">
-   1.1. Obtention des données expérimentales
+   5.1. Obtention des données expérimentales
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#principe-et-protocole">
-     1.1.1. Principe et protocole
+     5.1.1. Principe et protocole
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#programmation-de-la-carte-arduino">
-     1.1.2. Programmation de la carte Arduino.
+     5.1.2. Programmation de la carte Arduino.
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#traitement-des-donnees">
-   1.2. Traitement des données.
+   5.2. Traitement des données.
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -271,12 +258,12 @@
         
               <div>
                 
-  <div class="section" id="celerite-du-son-dans-l-air-realisation-de-l-experience">
-<h1><span class="section-number">1. </span>Célérité du son dans l’air - Réalisation de l’expérience<a class="headerlink" href="#celerite-du-son-dans-l-air-realisation-de-l-experience" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="utilisation-d-un-microcontrolleur-1h">
+<h1><span class="section-number">5. </span>Utilisation d’un microcontrolleur (1h)<a class="headerlink" href="#utilisation-d-un-microcontrolleur-1h" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="obtention-des-donnees-experimentales">
-<h2><span class="section-number">1.1. </span>Obtention des données expérimentales<a class="headerlink" href="#obtention-des-donnees-experimentales" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Obtention des données expérimentales<a class="headerlink" href="#obtention-des-donnees-experimentales" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="principe-et-protocole">
-<h3><span class="section-number">1.1.1. </span>Principe et protocole<a class="headerlink" href="#principe-et-protocole" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>Principe et protocole<a class="headerlink" href="#principe-et-protocole" title="Permalink to this headline">¶</a></h3>
 <p>On désire mesurer la célérité du son dans l’air un grand nombre de fois. On va pour cela utiliser un émetteur récepteur ultrasons et une carte Arduino.</p>
 <p><em>Principe de mesure</em> : On place un obstacle à une distance <span class="math notranslate nohighlight">\(d\)</span> de l’émetteur-récepteur puis on va mesurer le temps de vol <span class="math notranslate nohighlight">\(t\)</span>. On peut obtenir la célérité du son grâce à la relation <span class="math notranslate nohighlight">\(c = \frac{2d}{t}\)</span>.</p>
 <p>Pour plus de précision, on va réaliser des mesures pour plusieurs distances <span class="math notranslate nohighlight">\(d\)</span> et on réalisera une régression linéaire en traçant <span class="math notranslate nohighlight">\(t\)</span> en fonction de <span class="math notranslate nohighlight">\(d\)</span>. La pente permettra de remonter à la célérité du son. Le montage réalisé est donné ci-dessous (on place l’obstacle devant l’émetteur).</p>
@@ -285,7 +272,7 @@
 <p>La carte Arduino sera programmée pour renvoyer N mesures du temps de vol (N est choisi par l’expérimentateur).</p>
 </div>
 <div class="section" id="programmation-de-la-carte-arduino">
-<h3><span class="section-number">1.1.2. </span>Programmation de la carte Arduino.<a class="headerlink" href="#programmation-de-la-carte-arduino" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Programmation de la carte Arduino.<a class="headerlink" href="#programmation-de-la-carte-arduino" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Télécharger le <strong>dossier</strong> depuis le site de la classe <strong>sur l’ordinateur du laboratoire</strong>. Ouvrir le logiciel Arduino et ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">vitesse_son_2.ino</span></code>.</p></li>
 <li><p>Réaliser le montage ci-dessus (bien respecter le numéro des bornes de branchement) et brancher la carte Arduino à l’ordinateur.</p></li>
@@ -296,14 +283,28 @@
 </div>
 </div>
 <div class="section" id="traitement-des-donnees">
-<h2><span class="section-number">1.2. </span>Traitement des données.<a class="headerlink" href="#traitement-des-donnees" title="Permalink to this headline">¶</a></h2>
-<p>Créer un fichier de script dans pyzo pour :</p>
+<h2><span class="section-number">5.2. </span>Traitement des données.<a class="headerlink" href="#traitement-des-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Utiliser la cellules ci-dessous pour :</p>
 <ol class="simple">
 <li><p>Importer les données dans un vecteur. Utiliser le code expliqué <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python/notebook/import_file.html">ici</a></p></li>
 <li><p>Tracer l’histogramme des mesures et vérifier qu’il n’y a pas visuellement de mesures aberrantes.</p></li>
 <li><p>Si c’est le cas, supprimer les données aberrantes en appliquant le processus de sélection présenté <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python_td/notebook/exo_science_2.html#celerite-des-ultrasons">ici</a>.</p></li>
 <li><p>Déterminer alors la célérité associée à chaque temps de vol puis la célérité moyenne et son écart-type. Comparer cette valeur à la valeur attendue.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">N&#39;oubliez pas d&#39;importer les bibliothèques utiles.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\nN&#39;oubliez pas d&#39;importer les bibliothèques utiles.\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -332,7 +333,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="exo_comparaison.html" title="previous page"><span class="section-number">2. </span>(TP) Complément : Utilisation d’une régression linéaire.</a>
+    <a class='left-prev' id="prev-link" href="exo_comparaison.html" title="previous page"><span class="section-number">4. </span>(TP) Utilisation d’une régression linéaire. (1h)</a>
 
         </div>
         
@@ -353,11 +354,9 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
