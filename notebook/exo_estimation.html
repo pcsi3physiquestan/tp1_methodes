@@ -499,7 +499,7 @@ et <span class="math notranslate nohighlight">\(d_2\)</span></p></li>
 t2 =  0
 d1 =  0
 d2 =  0
-u(t1) =  0.13224336541956838
+u(t1) =  0.13215279225668913
 u(t2) =  0
 u(d1) =  0
 u(d2) =  0
@@ -516,13 +516,13 @@ u(d2) =  0
 <p>Grâce aux valeurs affichés précédemment, rendre-compte dans votre compte-rendu de la mesure de <span class="math notranslate nohighlight">\(t_1, t_2, d_1\)</span> et <span class="math notranslate nohighlight">\(d_2\)</span> en choisissant correctement l’arrondi de l’incertitude-type et de la valeur mesurée. <strong>On oubliera pas non plus l’unité.</strong></p>
 <p>Forme à donner :</p>
 <div class="math notranslate nohighlight">
-\[t_1 = ... \pm ...\]</div>
+\[t_1 = ... \pm ...\rm{Unité}\]</div>
 <div class="math notranslate nohighlight">
-\[t_2 = ... \pm ...\]</div>
+\[t_2 = ... \pm ...\rm{Unité}\]</div>
 <div class="math notranslate nohighlight">
-\[d_1 = ... \pm ...\]</div>
+\[d_1 = ... \pm ...\rm{Unité}\]</div>
 <div class="math notranslate nohighlight">
-\[d_2 = ... \pm ...\]</div>
+\[d_2 = ... \pm ...\rm{Unité}\]</div>
 </div>
 <div class="section" id="estimation-de-la-celerite-du-son-propagation-d-incertitude">
 <h2><span class="section-number">2.3. </span>Estimation de la célérité du son. Propagation d’incertitude.<a class="headerlink" href="#estimation-de-la-celerite-du-son-propagation-d-incertitude" title="Permalink to this headline">¶</a></h2>
@@ -532,7 +532,7 @@ u(d2) =  0
 <p>Il n’est pas utile de refaire toute la simulation. Vous disposez déjà de N échantillon simulés pour <span class="math notranslate nohighlight">\(t_1,t_2, d_1, d_2\)</span> (<code class="docutils literal notranslate"><span class="pre">t1_sim,</span> <span class="pre">t2_sim,</span> <span class="pre">d1_sim,</span> <span class="pre">d2_sim</span></code>). Vous allez devoir:</p>
 <ol class="simple">
 <li><p>Créer deux vecteurs <code class="docutils literal notranslate"><span class="pre">dt_sim</span></code> et <code class="docutils literal notranslate"><span class="pre">D_sim</span></code> correspondent aux N simulations de tirages pour la durée de vol et la distance E-R</p></li>
-<li><p>Créer un vecteur <code class="docutils literal notranslate"><span class="pre">c_sim</span></code> contenantles N simulations des valeurs de la célérité du son</p></li>
+<li><p>Créer un vecteur <code class="docutils literal notranslate"><span class="pre">c_sim</span></code> contenant les N simulations des valeurs de la célérité du son</p></li>
 <li><p>Obtenir la moyenne <code class="docutils literal notranslate"><span class="pre">cm</span></code> et l’écart-type <code class="docutils literal notranslate"><span class="pre">uc</span></code> du vecteur <code class="docutils literal notranslate"><span class="pre">c_sim</span></code>.</p></li>
 <li><p>Tracer l’histogramme des valeurs simulés de la célérité <code class="docutils literal notranslate"><span class="pre">c</span></code>.
 </font></p></li>
@@ -562,7 +562,13 @@ u(d2) =  0
 <span class="n">uc</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Les lignes ci-dessous afficheront les résultats attention aux noms de variables</span>
+<span class="sd">Tracé graphique</span>
+<span class="sd">Pensez bien à créer la fenêtre graphique, la titrer et légender les axes</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Les lignes ci-dessous afficheront les résultats sans tenir compte des chiffres significatifs</span>
+<span class="sd">attention aux noms de variables</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c = &quot;</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uc = &quot;</span><span class="p">,</span> <span class="n">uc</span><span class="p">)</span>
@@ -586,7 +592,7 @@ uc =  0
 </ul>
 <p><strong>Un résultat de mesure unique avec incertitude doit s’écrire sous la forme :</strong>
 $<span class="math notranslate nohighlight">\(
-G = (G_{mes} \pm u(G)) Unités
+G = (G_{mes} \pm u(G)) \rm{Unités}
 \)</span>$</p>
 <p>Vous devez respectez les contraintes suivantes :</p>
 <ul class="simple">
@@ -596,7 +602,7 @@ G = (G_{mes} \pm u(G)) Unités
 <p>Rendre-compte de votre résultat de mesure.</p>
 <div class="math notranslate nohighlight">
 \[
-c = (Résultat de mesurage \pm Incertitude) (Facultatif: \times Puissance de 10) Unité
+c = (Resultat de mesurage \pm Incertitude) (Facultatif: \times Puissance de 10) \rm{Unité}
 \]</div>
 </div>
 </div>
@@ -609,10 +615,12 @@ c_{air} = 331,5 + 0,607 \theta
 \]</div>
 <p>autour de la température ambiante où <span class="math notranslate nohighlight">\(\theta\)</span> est la température en <strong>Celsius</strong>.</p>
 <p><em>(Robert N. Compton et Michael A. Duncan, Laser Experiments for Chemistry and Physics)</em></p>
-<ol class="simple">
-<li><p>Ecrire une fonction cel_T(T) qui prend comme argument un flottant (température T) et qui renvoie un flottant : la célérité(en m/s)</p></li>
+<blockquote>
+<div><ol class="simple">
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">cel_T(T)</span></code> qui prend comme argument un flottant (température T) et qui renvoie un flottant : la célérité(en m/s)</p></li>
 <li><p>Calculer l’écart normalisé entre la célérité estimée par votre mesure et celle donnée par la littérature (par manque d’information, on considèrera que cette valeur n’a pas d’incertitude). Conclure quant à la compatibilité entre votre expérience et le modèle proposé.</p></li>
 </ol>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cel_T</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
@@ -631,6 +639,10 @@ c_{air} = 331,5 + 0,607 \theta
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Que ce soit ici en codant sous Python ou par écrit en analysant un ensemble de résultats ou une courbe, l’exploitation n’est JAMAIS automatique et demande TOUJOURS de réfléchir en détail à vos résultats.</p>
 </div>
 </div>
 </div>
