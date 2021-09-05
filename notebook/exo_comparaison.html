@@ -232,7 +232,7 @@
   <p>Vous allez maintenant mettre en oeuvre l’utilisation de l’écart normalisé et de la régression linéaire pour comparer les valeurs expérimentales avec la valeur théorique.</p>
 <div class="section" id="tp-utilisation-d-une-regression-lineaire-1h">
 <h1><span class="section-number">4. </span>(TP) Utilisation d’une régression linéaire. (1h)<a class="headerlink" href="#tp-utilisation-d-une-regression-lineaire-1h" title="Permalink to this headline">¶</a></h1>
-<p>Cette partie est entièrement libre. Vous allez utiliser la cellule suivante pour réaliser une régression linéaire à partir de la relation <span class="math notranslate nohighlight">\(d = c \Delta t\)</span>. Vous devrez :</p>
+<p>Cette partie est relativement libre <strong>mais il faudra changer et ajouter beaucoup d’éléments</strong>. Vous allez utiliser la cellule suivante pour réaliser une régression linéaire à partir de la relation <span class="math notranslate nohighlight">\(d = c \Delta t\)</span>. Vous devrez :</p>
 <ul class="simple">
 <li><p>Vérifier la compatibilité avec le modèle linéaire par régression linéaire et tracé graphique (pensez aux écarts normalisés)</p></li>
 <li><p>Estimer ainsi la célérité et son incertitude au moyen d’une simulation de Monte-Carlo sur la régression linéaire.</p></li>
@@ -242,14 +242,76 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">N&#39;oubliez pas d&#39;importer les bibliothèques utiles.</span>
-<span class="sd">Vous devez aussi entrer à nouveau les données expérimentales car les notebooks sont indépendants.</span>
+<span class="sd">------- MODULES UTILES -----------</span>
+<span class="sd">N&#39;oubliez pas d&#39;importer les bibliothèques utiles. Toutes ne sont pas importées.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">------- DONNEES EXPERIMENTALES -----------</span>
+<span class="sd">Pensez à changer les valeurs des données expérimentales. Les suivantes sont fictives</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>  <span class="c1"># Liste des distances E-R (en cm - évitez les nombres trop petits)</span>
+<span class="n">ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur d</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">240</span><span class="p">])</span>  <span class="c1"># Liste des temps de vol (en ms)</span>
+<span class="n">udt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.4</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur Delta t</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">------- LOI COMPATIBLE A L&#39;OEIL -----------</span>
+<span class="sd">Commencez par tracer un graphique approprié pour vérifier à l&#39;oeil si le modèle attendue est possible.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">------- AJUSTEMENT LINEAIRE -----------</span>
+<span class="sd">Vous devez réaliser un ajustement linéaire et en déduire une valeur des paramètres</span>
+<span class="sd">(pente et ordonnées à l&#39;origine) AVEC LEUR INCERTITUDE par méthode de Monte-Carlo.</span>
+<span class="sd">Vous devez dans l&#39;ordre :</span>
+<span class="sd">- dans une boucle, créer directement un vecteur de N simulations pour d et dt pour le binome i</span>
+<span class="sd">et stocker ce vecteur dans une listes (un élément de la liste = un binôme)</span>
+<span class="sd">- dans une seconde boucle, sélectionner les échantillons k de chaque binômes</span>
+<span class="sd">et faire la régression linéaire avec ces échantillons. Stocker pente, ordonnée</span>
+<span class="sd">à l&#39;origine et valeur de célérité dans un vecteur de taille N créé au préalable.</span>
+<span class="sd">- Calculer la moyenne et l&#39;écart-type de la pente, de l&#39;ordonnée à l&#39;origine, de la célérité</span>
+<span class="sd">pour avoir les valeurs estimées et leur incertitude.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n_bin</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># Nombre de binômes</span>
+
+
+
+
+
+
+
+
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">------- TEST DE COMPATIBILITE DU MODEL -----------</span>
+<span class="sd">1. Vérifier par un tracé graphique que la droite ajustée passe par les croix d&#39;incertitude</span>
+<span class="sd">2. Vérifier par un tracé graphique que tous les écarts normalisés entre</span>
+<span class="sd">les valeurs expérimentales et les valeurs ajustées sont inférieurs à 2</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">------- TEST DE COMPATIBILITE DE C -----------</span>
+<span class="sd">Vérifier par un calcul d&#39;écart normalisé que la valeur estimée de la célérité</span>
+<span class="sd">est compatible avec les données théoriques.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\nN&#39;oubliez pas d&#39;importer les bibliothèques utiles.\nVous devez aussi entrer à nouveau les données expérimentales car les notebooks sont indépendants.\n&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\n------- TEST DE COMPATIBILITE DE C -----------\nVérifier par un calcul d&#39;écart normalisé que la valeur estimée de la célérité\nest compatible avec les données théoriques.\n&quot;
 </pre></div>
 </div>
 </div>
