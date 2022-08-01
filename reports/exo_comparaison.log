@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "D:\cedri\anaconda3\envs\prepa\lib\asyncio\base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 560, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+"""
+------- AJUSTEMENT LINEAIRE -----------
+Vous devez réaliser un ajustement linéaire et en déduire une valeur des paramètres
+(pente et ordonnées à l'origine) AVEC LEUR INCERTITUDE par méthode de Monte-Carlo.
+La majeure partie du code est donnée.
+"""
+N = 10000
+n_bin = len(d)  # Nombre de binômes
+
+""" SIMULATION DES ECHANTILLONS
+On crée directement des tableaux de N*k échantillons simulés pour d et dt
+"""
+k = len(d)
+d_sim = rd.uniform(-ud, ud, (N, k))
+dt_sim = rd.uniform(-udt, udt, (N, k))
+
+""" REGRESSIONS LINEAIRES
+Réalisation des N régressions linéaires au moyen d'une boucle
+"""
+c_sim = []  # On stockera les célérité dans cette liste.
+ordo_sim = []  # On conserve aussi les ordonnées à l'origine
+for j in range(N): On parcourt les N échantillons
+    d_e = d_sim[j]  # Sélection des distances simulées
+    dt_e = dt_sim[j]  # Sélection des temps de vol simulés
+    par_e = np.polyfit(d_e, dt_e, 1)  # Régression linéaire
+    c_e = 1 / par_e[0]  # La célérité est l'inverse de la pente
+    ordo_e = par_e[1]  # Ordonnée à l'origine
+    c_sim.append(c_e)  # Ajout de la célérité à la liste des valeurs simulées de c
+    ordo_sim.append(ordo_e)  # Ajout de l'ordonnée à l'origine
+
+""" -------------------------------------------------------
+A VOUS DE CODER : Détermination des valeurs utiles
+"""
+c_m = 0  # Ecrire ici l'instruction permettant d'avoir la célérité estimée à partir de c_sim
+c_u = 0  # Ecrire ici l'instruction permettant d'avoir l'incertitude sur la célérité estimée à partir de c_sim
+ordo_m = 0  # Ecrire ici l'instruction permettant d'avoir l'ordonnée à l'origine estimée à partir de ordo_sim
+ordo_u = 0  # Ecrire ici l'instruction permettant d'avoir son incertitude à partir de ordo_sim
+
+""" FIN DE LA PARTIE A MODIER """
+
+# Affichage des grandeurs.
+print("c =" + str(c_m))
+print("u(c) =" + str(c_u))
+print("ordo =" + str(ordo_m))
+print("u(ordo) =" + str(ordo_u))
+------------------
+
+[1;36m  File [1;32m"C:\Users\cedri\AppData\Local\Temp/ipykernel_19264/948194908.py"[1;36m, line [1;32m22[0m
+[1;33m    for j in range(N): On parcourt les N échantillons[0m
+[1;37m                                 ^[0m
+[1;31mSyntaxError[0m[1;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (Temp/ipykernel_19264/948194908.py, line 22)
+

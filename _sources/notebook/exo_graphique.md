@@ -35,6 +35,7 @@ Pour pouvoir tester votre code, des données expérimentales __fictives__ sont e
 En TP, vous récupérerez l'ensemble des données de mesure des différents binômes et modifierez ces listes.
 
 ```{code-cell}
+:tags: [remove-output, hide-input]
 import numpy as np  # Pensez à l'alias de la bibliothèques numpy pour la suite.
 """Données expérimentales
 
@@ -51,6 +52,7 @@ d'afficher de manière esthétique le tableau des mesures.
 Observez surtout le choix des arrondis dans les commentaires (il y a un problème pour le 10 de udt).
 
 ```{code-cell}
+:tags: [remove-output, hide-input]
 import pandas as pd
 
 donnees = pd.DataFrame(
@@ -81,6 +83,7 @@ Pensez bien :
 _On rappelle que les vecteurs contenant les données ont déjà été créé dans la première cellule : `d, ud, dt, udt`._
 
 ```{code-cell}
+:tags: [remove-output, hide-input]
 """Votre code
 
 A vous de coder le graphique à tracer.
@@ -120,6 +123,7 @@ Dans cette partie, le script (les parties à modifier sont clairement explicité
 4. représente sur un autre graphique les écarts normalisés à la moyenne des mesures pour vérifier la cohérence des mesures entre elles.
 
 ```{code-cell}
+:tags: [remove-output, hide-input]
 """ PARTIE DEJA ECRITE"""
 """On importe pour vous la bibliothèque random 
 et la bibliothèque matplotlib.pyplot
