@@ -141,8 +141,8 @@ Déterminer la distribution statistique pour t1, t2, d1 et d2.
 On oubliera pas d'ajouter le résultat de mesurage pour centrer ces grandeurs sur leur valeur mesurée.
 
 Exemple de code :
-t1_sim = t1_val + ut11 + ut12
-si t1_val est le résultat de mesurage et ut11, ut12 les vecteurs simulés
+t1_sim = t1_m + ut11 + ut12
+si t1_m est le résultat de mesurage et ut11, ut12 les vecteurs simulés
 ATTENTION : Ne PAS changer les noms des variables t1_sim...
 car elles seront utilisées pour le tracés des histogrammes.
 

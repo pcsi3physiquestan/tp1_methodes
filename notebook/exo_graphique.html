@@ -301,6 +301,7 @@ En TP, vous récupérerez l’ensemble des données de mesure des différents bi
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Pensez à l&#39;alias de la bibliothèques numpy pour la suite.</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="sd">&quot;&quot;&quot;Données expérimentales</span>
 
 <span class="sd">Pensez à entre les 4 listes dans le même ordre.</span>
@@ -309,27 +310,6 @@ En TP, vous récupérerez l’ensemble des données de mesure des différents bi
 <span class="n">ud</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.32</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur d</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">240</span><span class="p">])</span>  <span class="c1"># Liste des temps de vol (en ms)</span>
 <span class="n">udt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.4</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">])</span>  <span class="c1"># Liste des incertitudes sur Delta t</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>La syntaxe et les fonctions de la cellule ci-dessous ne sont pas à connaître. Vous verrez simplement une façon
-d’afficher de manière esthétique le tableau des mesures.
-Observez surtout le choix des arrondis dans les commentaires (il y a un problème pour le 10 de udt).</p>
-<div class="cell tag_remove-output tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">donnees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;d(cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="p">],</span>  <span class="c1"># On arrondi à 10^(-2) pour avoir la même précision que pour l&#39;incertitude</span>
-        <span class="s2">&quot;u(d)(cm)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ud</span><span class="p">],</span>  <span class="c1">#On garde deux chiffres significatifs sur l&#39;incertitude</span>
-        <span class="s2">&quot;Delta t(ms)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dt</span><span class="p">],</span>  <span class="c1"># Même principe</span>
-        <span class="s2">&quot;u(Delta t)(ms)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">udt</span><span class="p">]</span>  <span class="c1"># Même principe, il y a juste un problème pour 10</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-
-<span class="n">donnees</span><span class="o">.</span><span class="n">style</span>
 </pre></div>
 </div>
 </div>
@@ -343,17 +323,23 @@ Observez surtout le choix des arrondis dans les commentaires (il y a un problèm
 le graphique représentant <span class="math notranslate nohighlight">\(\Delta t\)</span> en fonction <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <p>Pensez bien :</p>
 <ul class="simple">
-<li><p>aux bibliothèques utiles</p></li>
 <li><p>aux légendes du graphiques</p></li>
 <li><p>aux barres d’incertitudes</p></li>
 </ul>
-<p><em>On rappelle que les vecteurs contenant les données ont déjà été créé dans la première cellule : <code class="docutils literal notranslate"><span class="pre">d,</span> <span class="pre">ud,</span> <span class="pre">dt,</span> <span class="pre">udt</span></code>.</em></p>
+<p><em>On rappelle que les vecteurs contenant les données ont déjà été créé dans la première cellule : <code class="docutils literal notranslate"><span class="pre">d,</span> <span class="pre">ud,</span> <span class="pre">dt,</span> <span class="pre">udt</span></code>. Pensez à utiliser le <a class="reference external" href="https://pcsi3physiquestan.github.io/intro_python/notebook/plt_presentation.html#un-exemple-basique">modèle</a>.</em></p>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Votre code</span>
 
 <span class="sd">A vous de coder le graphique à tracer.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Créer la fenêtre graphique avec subplots</span>
+
+<span class="c1"># Donner un titre (f.suptitle) et des légendes (ax.set_xlabel et ax.set_ylabel)</span>
+
+<span class="c1"># Tracer la courbe Delta t (D) avec errorbar</span>
+
+<span class="c1"># Afficher une grille (ax.grid) et afficher le graphique (plt.show)</span>
 </pre></div>
 </div>
 </div>
