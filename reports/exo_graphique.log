@@ -1,109 +1,64 @@
 Traceback (most recent call last):
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
     executenb(
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "D:\cedri\anaconda3\envs\prepa\lib\asyncio\base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/home/ubuntu/miniconda3/envs/jupybook/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "D:\cedri\anaconda3\envs\prepa\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-"""A vous de coder. On importe pour vous la bibliothèque random 
-et la bibliothèque matplotlib.pyplot
-"""
-import numpy.random as rd
-import matplotlib.pyplot as plt
+f, ax = plt.subplots()
+f.suptitle("Carte de controle des mesures")
+ax.set_xlabel("Distance (d) (cm)")
+ax.set_ylabel("EN")
 
-"""
-On vous montre comment créer un tableau de taille N*k
-où chaque colonne simule les tirages d_i du groupe i suivant une distribution choisie.
-Il suffit pour cela d'entrer un vecteur de valeurs pour la moyenne et l'incertitude
-au lieu de rentrer une valeur seule.
-"""
-N = 100000
-k = len(d)  # Pour obtenir le nombre de mesures réaliser : la taille de la liste d.
-d_sim = rd.normal(d, ud, (N, k))  # Il faut préciser la taille du tableau N lignes et k colonnes
-dt_sim = rd.normal(dt, udt, (N, k))
+# capsize sert à ajouter des barres aux extrémités simplement par esthétisime.
+ax.errorbar(d, c_ms, marker="+", linestyle="", yerr=c_us, capsize=2)  # On ne relit pas les points
 
-"""
-Calcul des c et de pour chaque binomes : moyenne de chaque colonne.
-La fonction np.mean possède une option np.mean(..., axis=0) qui permet justement de faire des moyennes que par colonnes.
-Note : np.mean(..., axis=1) fait des moyennes par lignes.
+print(len([c_mean - c_u] * len(d)))
+ax.plot(d, [c_mean] * len(d))  # Tracé de la moyenne
+ax.plot(d, [c_mean - c_u] * len(d), linestyle=":")  # Valeur basse de l'intervalle associée à l'incertitude sur c_mean
+ax.plot(d, [c_mean + c_u] * len(d), linestyle=":")  # Valeur haute de l'intervalle associée à l'incertitude sur c_mean
 
-Même principe pour l'écart-type avec l'utilisation de l'option axis=0
-"""
-c_binomes = d_sim / dt_sim  # Calcul de c pour chaque échantillons et chaque binomes de TP.
-c_sim = np.mean(c_binomes, axis = 0)  # Moyenne par colonne : on a la célérité de chaque binôme.
-uc_sim = np.std(c_binomes, ddof=1, axis=0)  # Ecart-type par colonne :on a l'incertitude de chaque binôme.
-
-"""
-C'est à vous maintenant de :
-- calculer la moyenne des célérités de chaque binomes
-- calculer l'incertitude-type sur la célérité au moyen de la formule donnée dans l'énoncé.
-N'hésitez pas à afficher les variables c_sim et uc_sim pour voir leur contenu.
-"""
-c0 = 0  # A modifier
-uc0 = 0  # A modifier
-
-"Calcul des écarts normalisés à la moyenne pour chaque binomes"
-en_binomes = 0  # A modifier
-
-
-
-"""Tracé graphique
-On montre comment tracer les valeurs de célérité avec leurs incertitude et les écarts normalisés dans la même fenêtre.
-
-Seule nouveauté, le tracé de la valeur moyenne. Voici l'instruction à placer (ax représente les axes):
-ax.plot([0, k+1], [c_mes, c_mes], color='red', label="Moyenne des mesures")
-où c_mes est la variable contenant la valeur de la célérité estimée par moyenne.
-
-Modifier les lignes quand c'est nécessaire.
-"""
-f, ax = plt.subplots(1, 2, figsize=(9, 6))  # Fenêtre graphique avec deux zones de tracé.
-f.suptitle('')  # Donner un titre au graphique
-
-"""Tracé des valeurs de célérité avec incertitude pour chaque groupe"""
-ax[0].set_xlabel('Binôme')
-ax[0].set_ylabel('Célérité(m/s)')
-
-ax[0].errorbar(np.arange(k), c_sim, yerr=uc_sim, label="Valeurs estimées", marker='+', linestyle='', color='red')
-ax[0].legend()
-
-"""Tracé des écarts normalisés"""
-
-"""Pensez à afficher la légende"""
-ax[1].set_xlabel('Binôme')
-ax[1].set_ylabel('EN')
-
-ax[1].plot(en_binome, label="Ecarts normalisés", marker='+', linestyle='', color='blue')
-ax[1].legend()
 
 plt.show()
-
-"""Calcul de l'écart normalisé entre c0 et la valeur données dans la littérature"""
-en_c = 0 # A modifier
-print(en_c)
-
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-16fab5d27835>[0m in [0;36m<module>[0;34m[0m
-[1;32m     66[0m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mset_ylabel[0m[0;34m([0m[0;34m'EN'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     67[0m [0;34m[0m[0m
-[0;32m---> 68[0;31m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mplot[0m[0;34m([0m[0men_binome[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"Ecarts normalisés"[0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m'+'[0m[0;34m,[0m [0mlinestyle[0m[0;34m=[0m[0;34m''[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'blue'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     69[0m [0max[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     70[0m [0;34m[0m[0m
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn [5], line 7[0m
+[0;32m      4[0m ax[38;5;241m.[39mset_ylabel([38;5;124m"[39m[38;5;124mEN[39m[38;5;124m"[39m)
+[0;32m      6[0m [38;5;66;03m# capsize sert à ajouter des barres aux extrémités simplement par esthétisime.[39;00m
+[1;32m----> 7[0m [43max[49m[38;5;241;43m.[39;49m[43merrorbar[49m[43m([49m[43md[49m[43m,[49m[43m [49m[43mc_ms[49m[43m,[49m[43m [49m[43mmarker[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m+[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mlinestyle[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43myerr[49m[38;5;241;43m=[39;49m[43mc_us[49m[43m,[49m[43m [49m[43mcapsize[49m[38;5;241;43m=[39;49m[38;5;241;43m2[39;49m[43m)[49m  [38;5;66;03m# On ne relit pas les points[39;00m
+[0;32m      9[0m [38;5;28mprint[39m([38;5;28mlen[39m([c_mean [38;5;241m-[39m c_u] [38;5;241m*[39m [38;5;28mlen[39m(d)))
+[0;32m     10[0m ax[38;5;241m.[39mplot(d, [c_mean] [38;5;241m*[39m [38;5;28mlen[39m(d))  [38;5;66;03m# Tracé de la moyenne[39;00m
 
-[0;31mNameError[0m: name 'en_binome' is not defined
-NameError: name 'en_binome' is not defined
+File [1;32mD:\cedri\anaconda3\envs\prepa\lib\site-packages\matplotlib\__init__.py:1423[0m, in [0;36m_preprocess_data.<locals>.inner[1;34m(ax, data, *args, **kwargs)[0m
+[0;32m   1420[0m [38;5;129m@functools[39m[38;5;241m.[39mwraps(func)
+[0;32m   1421[0m [38;5;28;01mdef[39;00m [38;5;21minner[39m(ax, [38;5;241m*[39margs, data[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m   1422[0m     [38;5;28;01mif[39;00m data [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m-> 1423[0m         [38;5;28;01mreturn[39;00m func(ax, [38;5;241m*[39m[38;5;28mmap[39m(sanitize_sequence, args), [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m   1425[0m     bound [38;5;241m=[39m new_sig[38;5;241m.[39mbind(ax, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m   1426[0m     auto_label [38;5;241m=[39m (bound[38;5;241m.[39marguments[38;5;241m.[39mget(label_namer)
+[0;32m   1427[0m                   [38;5;129;01mor[39;00m bound[38;5;241m.[39mkwargs[38;5;241m.[39mget(label_namer))
+
+File [1;32mD:\cedri\anaconda3\envs\prepa\lib\site-packages\matplotlib\axes\_axes.py:3491[0m, in [0;36mAxes.errorbar[1;34m(self, x, y, yerr, xerr, fmt, ecolor, elinewidth, capsize, barsabove, lolims, uplims, xlolims, xuplims, errorevery, capthick, **kwargs)[0m
+[0;32m   3489[0m x, y [38;5;241m=[39m np[38;5;241m.[39matleast_1d(x, y)  [38;5;66;03m# Make sure all the args are iterable.[39;00m
+[0;32m   3490[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(x) [38;5;241m!=[39m [38;5;28mlen[39m(y):
+[1;32m-> 3491[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124m'[39m[38;5;124mx[39m[38;5;124m'[39m[38;5;124m and [39m[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m[38;5;124m must have the same size[39m[38;5;124m"[39m)
+[0;32m   3493[0m everymask [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_errorevery_to_mask(x, errorevery)
+[0;32m   3495[0m label [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mlabel[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+
+[1;31mValueError[0m: 'x' and 'y' must have the same size
+ValueError: 'x' and 'y' must have the same size
 

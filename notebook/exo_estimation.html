@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. (TP) Application à l’étude des ultrasons. (1h) &#8212; Méthodes expérimentales - Introduction</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,39 +19,38 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_estimation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -63,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -87,14 +102,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../tp1_methodes.html">
-   Méthodes expérimentales
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../tp1_methodes.html">
+                    Méthodes expérimentales
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Mesure unique
  </span>
@@ -142,94 +158,181 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/exo_estimation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/exo_estimation.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_estimation.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_estimation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/exo_estimation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/exo_estimation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#realisation-du-protocole-et-estimation-des-incertitudes-type">
    2.1. Réalisation du protocole et estimation des incertitudes-type
@@ -248,63 +351,164 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combinaison-des-incertitudes-simulation-de-monte-carlo">
-   2.2. Combinaison des incertitudes. Simulation de Monte-Carlo.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#estimation-de-la-celerite-du-son-propagation-d-incertitude">
-   2.3. Estimation de la célérité du son. Propagation d’incertitude.
+  <a class="reference internal nav-link" href="#estimation-de-la-celerite">
+   2.2. Estimation de la célérité.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#votre-travail">
-     2.3.1. Votre travail
+    <a class="reference internal nav-link" href="#estimation-simple">
+     2.2.1. Estimation simple
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-vous-de-coder">
-     2.3.2. A vous de coder
+    <a class="reference internal nav-link" href="#combinaison-des-incertitudes-simulation-de-monte-carlo">
+     2.2.2. Combinaison des incertitudes. Simulation de Monte-Carlo.
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-1">
+       2.2.2.1. Monte-Carlo : Méthode 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-2">
+       2.2.2.2. Monte-Carlo : Méthode 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-3">
+       2.2.2.3. Monte-Carlo : Méthode 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#autre-avantage-des-methodes-2-et-3">
+       2.2.2.4. Autre avantage des méthodes 2 et 3
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rendez-compte-de-votre-mesure">
-     2.3.3. Rendez-compte de votre mesure
+     2.2.3. Rendez-compte de votre mesure
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#donnees-theoriques">
-   2.4. Données théoriques
+   2.3. Données théoriques
   </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>(TP) Application à l’étude des ultrasons. (1h)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#realisation-du-protocole-et-estimation-des-incertitudes-type">
+   2.1. Réalisation du protocole et estimation des incertitudes-type
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mise-en-place">
+     2.1.1. Mise en place
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#realisation-des-mesures-bilan-des-incertitudes">
+     2.1.2. Réalisation des mesures - Bilan des incertitudes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-de-la-celerite">
+   2.2. Estimation de la célérité.
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimation-simple">
+     2.2.1. Estimation simple
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combinaison-des-incertitudes-simulation-de-monte-carlo">
+     2.2.2. Combinaison des incertitudes. Simulation de Monte-Carlo.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-1">
+       2.2.2.1. Monte-Carlo : Méthode 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-2">
+       2.2.2.2. Monte-Carlo : Méthode 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monte-carlo-methode-3">
+       2.2.2.3. Monte-Carlo : Méthode 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#autre-avantage-des-methodes-2-et-3">
+       2.2.2.4. Autre avantage des méthodes 2 et 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rendez-compte-de-votre-mesure">
+     2.2.3. Rendez-compte de votre mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#donnees-theoriques">
+   2.3. Données théoriques
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <p>La page ci-présente existe en version notebook téléchargeable grâce au bouton <img alt="Bouton" src="../_images/bouton_tl.png" /> (choisir le format <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>). On rappelle qu’l faut ensuite l’enregistrer dans un répertoire adéquat sur votre ordinateur (<code class="docutils literal notranslate"><span class="pre">tp1</span></code> par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.</p>
 <div class="tex2jax_ignore mathjax_ignore section" id="tp-application-a-l-etude-des-ultrasons-1h">
-<h1><span class="section-number">2. </span>(TP) Application à l’étude des ultrasons. (1h)<a class="headerlink" href="#tp-application-a-l-etude-des-ultrasons-1h" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2. </span>(TP) Application à l’étude des ultrasons. (1h)<a class="headerlink" href="#tp-application-a-l-etude-des-ultrasons-1h" title="Permalink to this headline">#</a></h1>
 <p>On reprend l’étude de la propagation des ultrasons. Le but est de déterminer la célérité du son dans l’air.
 Le protocole réalisé et le matériel utilisé est celui proposé dans l’<a class="reference internal" href="exo_protocole.html"><span class="doc std std-doc">exercice que vous avez fait précédemment</span></a>.</p>
 <div class="section" id="realisation-du-protocole-et-estimation-des-incertitudes-type">
-<h2><span class="section-number">2.1. </span>Réalisation du protocole et estimation des incertitudes-type<a class="headerlink" href="#realisation-du-protocole-et-estimation-des-incertitudes-type" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Réalisation du protocole et estimation des incertitudes-type<a class="headerlink" href="#realisation-du-protocole-et-estimation-des-incertitudes-type" title="Permalink to this headline">#</a></h2>
 <p>Cette partie sera réalisée en TP. Lisez-là pour savoir ce que vous devrez faire mais vous ne pourrez pas faire grand chose avant le TP (sauf précision).</p>
 <div class="section" id="mise-en-place">
-<h3><span class="section-number">2.1.1. </span>Mise en place<a class="headerlink" href="#mise-en-place" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.1. </span>Mise en place<a class="headerlink" href="#mise-en-place" title="Permalink to this headline">#</a></h3>
 <p>Le protocole à réaliser est affichable en cliquant sur la croix à droite.</p>
 <div class="toggle docutils container">
 <div class="figure align-center" id="at-scient">
 <img alt="../_images/atelierscientifique_v2.png" src="../_images/atelierscientifique_v2.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Titre</span><a class="headerlink" href="#at-scient" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Titre</span><a class="headerlink" href="#at-scient" title="Permalink to this image">#</a></p>
 </div>
 <ol class="simple">
 <li><p>Réaliser le montage en n’oubliant pas d’alimenter l’émetteur et de le régler et en branchant les deux récepteurs sur la console FOXY. Régler l’émetteur en mode salves courtes.</p></li>
@@ -340,7 +544,7 @@ Le protocole réalisé et le matériel utilisé est celui proposé dans l’<a c
 </div>
 </div>
 <div class="section" id="realisation-des-mesures-bilan-des-incertitudes">
-<h3><span class="section-number">2.1.2. </span>Réalisation des mesures - Bilan des incertitudes<a class="headerlink" href="#realisation-des-mesures-bilan-des-incertitudes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.2. </span>Réalisation des mesures - Bilan des incertitudes<a class="headerlink" href="#realisation-des-mesures-bilan-des-incertitudes" title="Permalink to this headline">#</a></h3>
 <p>Vous devez maintenant réaliser la mesure.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -353,47 +557,25 @@ Le protocole réalisé et le matériel utilisé est celui proposé dans l’<a c
 </ul>
 </div>
 </div>
-<div class="section" id="combinaison-des-incertitudes-simulation-de-monte-carlo">
-<h2><span class="section-number">2.2. </span>Combinaison des incertitudes. Simulation de Monte-Carlo.<a class="headerlink" href="#combinaison-des-incertitudes-simulation-de-monte-carlo" title="Permalink to this headline">¶</a></h2>
-<p>Vous allez devoir :</p>
-<ol class="simple">
-<li><p>Ecrire une série d’instructions qui simule le tirage de chaque sources d’incertitudes N fois (N = 1000000)</p></li>
-<li><p>Combiner ces sources d’incertitudes pour obtenir les distributions des grandeurs <span class="math notranslate nohighlight">\(t_1, t_2, d_1\)</span>
-et <span class="math notranslate nohighlight">\(d_2\)</span></p></li>
-<li><p>Estimer l’incertitude-type sur chaque grandeur et le résultat de mesurage pour chaque grandeur.</p></li>
-<li><p>Représenter graphiquement les histogrammes des distributions pour les 4 grandeurs. Commenter leur allure</p></li>
-</ol>
-<p>Compléter la cellule de code ci-dessous et exécutez là.</p>
+<div class="section" id="estimation-de-la-celerite">
+<h2><span class="section-number">2.2. </span>Estimation de la célérité.<a class="headerlink" href="#estimation-de-la-celerite" title="Permalink to this headline">#</a></h2>
+<div class="section" id="estimation-simple">
+<h3><span class="section-number">2.2.1. </span>Estimation simple<a class="headerlink" href="#estimation-simple" title="Permalink to this headline">#</a></h3>
+<p>Vous aller devoir utiliser la cellule suivante pour déterminer la célérité. On ne s’occupe pas pour l’instant de déterminer son incertitude.</p>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Vous devez commencer par importer les bibliothèques utiles :</span>
 <span class="sd">- numpy (manipulation de vecteurs de valeurs)</span>
 <span class="sd">- numpy.random (simulation de tirages aléatoires)</span>
 <span class="sd">- matplotlib.pyplot (tracés graphiques)</span>
-
-<span class="sd">Pour cette première fois, nous le faisons pour vous. Faites attention aux alias.</span>
+<span class="sd">Elles seront utiles par la suite (pas pour cette cellule).</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Pour le calcul sur un ensemble de valeurs</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>  <span class="c1"># Pour la création de nombres aléatoires</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># Pour les tracés graphiques</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Créer maintenant, pour chaque source d&#39;incertitude un vecteur de taille N simulant chaque sources d&#39;incertitudes.</span>
-<span class="sd">On rappelle :</span>
-<span class="sd">- qu&#39;il faut centrer les distributions sur 0. Vous ajouterez ensuite le résultat de mesurage.</span>
-<span class="sd">- pour une distribution normale d&#39;espérance m et d&#39;écart-type s, la fonction à utiliser est rd.normal(m, s, N)</span>
-<span class="sd">- pour une distribution uniforme entre a et b, la fonction à utiliser est rd.uniform(a, b, N)</span>
-<span class="sd">ATTENTION : Le &quot;rd&quot; ne fonctionne que parce que (vous) avez importé la bibliothèque numpy.random avec l&#39;alias &quot;rd&quot;.</span>
-
-<span class="sd">On a mis un exemple pour t1 en supposant deux sources d&#39;incertitudes.</span>
-
-<span class="sd">Chez vous, simulez un nombre de sources d&#39;incertitude faible </span>
-<span class="sd">pour chaque mesurande avec des valeurs arbitraires (mais pas trop!).</span>
-<span class="sd">Vous pourrez ainsi tester le reste de votre script.</span>
-
 <span class="sd">Il faudra bien sûr modifier cette partie en TP.</span>
 
 <span class="sd">Enregistrer les valeurs mesurées dans des variables t1_m, t2_m, d1_m et d2_m</span>
@@ -404,184 +586,225 @@ et <span class="math notranslate nohighlight">\(d_2\)</span></p></li>
 <span class="n">d1_m</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Valeur mesurée pour d1</span>
 <span class="n">d2_m</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Valeur mesurée pour d2</span>
 
-<span class="c1"># t1 --- </span>
+
+<span class="c1"># Estimation de la célérité</span>
+<span class="n">c_m</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Utiliser LES VARIABLES introduites précédemment pour estimer la célérité des ondes.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c_m</span><span class="p">))</span>  <span class="c1"># ATTENTION : Les chiffres ne sont évidemment pas tous significatifs.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="combinaison-des-incertitudes-simulation-de-monte-carlo">
+<h3><span class="section-number">2.2.2. </span>Combinaison des incertitudes. Simulation de Monte-Carlo.<a class="headerlink" href="#combinaison-des-incertitudes-simulation-de-monte-carlo" title="Permalink to this headline">#</a></h3>
+<p>Pour rappel, la méthode de Monte-Carlo consiste:</p>
+<ul class="simple">
+<li><p>On répète N fois:</p>
+<ol class="simple">
+<li><p>à simuler de nouvelles valeurs des mesurandes directes (<em>ici <span class="math notranslate nohighlight">\(t_1, t_2, d_1, d_2\)</span></em>) : on réalise, pour chaque source d’incertitude un tirage aléatoire d’une valeur suivant la distribution choisie (ici des distributions <strong>uniformes</strong> de largeur estimée lors de l’expérience - <code class="docutils literal notranslate"><span class="pre">numpy.random.uniform(a</span> <span class="pre">:</span> <span class="pre">float,</span> <span class="pre">b</span> <span class="pre">:float)</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code>) auquel on ajoute la valeur mesurée (<code class="docutils literal notranslate"><span class="pre">t1_m,</span> <span class="pre">t2_m,</span> <span class="pre">d1_m,</span> <span class="pre">d2_m</span></code>).</p></li>
+<li><p>à déterminer une nouvelle valeur simulée du mesurandes indirect recherché (<em>ici <span class="math notranslate nohighlight">\(c\)</span></em>) et stocker cette valeur dans une liste prévue au préalable.</p></li>
+</ol>
+</li>
+<li><p>On obtient ainsi une liste de N valeurs de <span class="math notranslate nohighlight">\(c\)</span> simulées à partir des tirages aléatoires. On peut donc calculer des grandeurs statistiques. On calculera ainsi:</p>
+<ol class="simple">
+<li><p>L’écart-type (<code class="docutils literal notranslate"><span class="pre">numpy.std(liste_val</span> <span class="pre">:</span> <span class="pre">list,</span> <span class="pre">ddof=1)</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code>)de la liste de valeurs et <strong>on considèrera cet ecart-type comme étant l’incertitude sur <span class="math notranslate nohighlight">\(c\)</span>.</strong></p></li>
+</ol>
+</li>
+</ul>
+<div class="section" id="monte-carlo-methode-1">
+<h4><span class="section-number">2.2.2.1. </span>Monte-Carlo : Méthode 1<a class="headerlink" href="#monte-carlo-methode-1" title="Permalink to this headline">#</a></h4>
+<p>La première méthode est la plus simple à comprendre et à mettre en oeuvre. Elle présente par contre le plus long temps d’exécution.</p>
+<p><em>Note: La ligne %time permet simplement d’afficher le temps de calcul de la cellule entière.</em></p>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">S&#39;il y a moins de sources d&#39;incertitude, supprimez en.</span>
-<span class="sd">S&#39;il y a plus de sources d&#39;incertitude, ajoutez en en vous aidant du modèle.</span>
+<span class="sd">Il faut d&#39;abord rentrer les DEMIE-LARGEURS des distributions pour chaque sources d&#39;incertitude de chaque grandeur.</span>
+<span class="sd">- S&#39;il y a moins de sources d&#39;incertitude, supprimez en.</span>
+<span class="sd">- S&#39;il y a plus de sources d&#39;incertitude, ajoutez en en vous aidant du modèle.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">t1_u1u</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># Ecart-type de la première source d&#39;incertitude de t1</span>
-<span class="n">t1_u2u</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Ecart-type de la deuxième source d&#39;incertitude de t1</span>
-<span class="n">t1_u1</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u1u</span><span class="p">,</span> <span class="n">t1_u1u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c1"># Distribution uniforme</span>
-<span class="n">t1_u2</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u2u</span><span class="p">,</span> <span class="n">t1_u2u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c1"># Distribution uniforme</span>
+<span class="c1"># Incertitudes estimées</span>
+<span class="c1"># sur t1 --- </span>
+<span class="n">t1_u1u</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># Demie-largeur de la première source d&#39;incertitude de t1</span>
+<span class="n">t1_u2u</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Demie-largeur de la deuxième source d&#39;incertitude de t1</span>
 
-<span class="c1"># t2 ---</span>
+<span class="c1"># sur t2 ---</span>
 
-<span class="c1"># d1 ---</span>
 
-<span class="c1"># d2 ---</span>
+
+<span class="c1"># sur  d1 ---</span>
+
+
+
+<span class="c1"># sur d2 ---</span>
+
+
+
+<span class="c1"># INITIALISATION</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># Nombre de simulations réalisées.</span>
+<span class="n">c_sim</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Liste vide où on va stocker les valeurs</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    On reprend le même code que pour calculer une valeur de c.</span>
+<span class="sd">    Sauf que les valeur de t1, t2, ... sont légèrement modifiées par un tirage aléatoires</span>
+<span class="sd">    pour CHAQUE sources d&#39;incertitudes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># MODIFIER ces lignes en fonction du nombre de sources d&#39;incertitudes estimées précédemment.</span>
+    <span class="n">t1_sim</span> <span class="o">=</span> <span class="n">t1_m</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u1u</span><span class="p">,</span> <span class="n">t1_u1u</span><span class="p">)</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u2u</span><span class="p">,</span> <span class="n">t1_u2u</span><span class="p">)</span>
+    <span class="n">t2_sim</span> <span class="o">=</span> <span class="n">t2_m</span>
+    <span class="n">d1_sim</span> <span class="o">=</span> <span class="n">d1_m</span>
+    <span class="n">d2_sim</span> <span class="o">=</span> <span class="n">d2_m</span> 
+
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># A modifier en le calcul comme précédemment (mais avec les t1_sim,...)</span>
+
+    <span class="n">c_sim</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># On stocke la valeur simulées</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Déterminer la distribution statistique pour t1, t2, d1 et d2.</span>
-<span class="sd">On oubliera pas d&#39;ajouter le résultat de mesurage pour centrer ces grandeurs sur leur valeur mesurée.</span>
-
-<span class="sd">Exemple de code :</span>
-<span class="sd">t1_sim = t1_m + ut11 + ut12</span>
-<span class="sd">si t1_m est le résultat de mesurage et ut11, ut12 les vecteurs simulés</span>
-<span class="sd">ATTENTION : Ne PAS changer les noms des variables t1_sim...</span>
-<span class="sd">car elles seront utilisées pour le tracés des histogrammes.</span>
-
-<span class="sd">On donne à nouveau l&#39;exemple pour t1</span>
+<span class="sd">Estimation de l&#39;incertitude de mesure</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">t1_sim</span> <span class="o">=</span> <span class="n">t1_m</span> <span class="o">+</span> <span class="n">t1_u1</span> <span class="o">+</span> <span class="n">t1_u2</span>
-<span class="n">t2_sim</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">d1_sim</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">d2_sim</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">c_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(c) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c_u</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="monte-carlo-methode-2">
+<h4><span class="section-number">2.2.2.2. </span>Monte-Carlo : Méthode 2<a class="headerlink" href="#monte-carlo-methode-2" title="Permalink to this headline">#</a></h4>
+<p>La deuxième méthode conserve l’idée de l’itération précédente mais elle va créer les N valeurs simulées des mesurandes directes (<em>ici <span class="math notranslate nohighlight">\(t_1, t_2, d_1, d_2\)</span></em>) d’un seul coup AVANT la boucle. On ira piocher dans les listes ainsi créées. L’avantage est que la création des N valeurs est beaucoup plus rapide. Il suffit de rajouter un troisième argument optionnel : <code class="docutils literal notranslate"><span class="pre">numpy.random.uniform(a:</span> <span class="pre">float,</span> <span class="pre">b:</span> <span class="pre">float,</span> <span class="pre">N:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">ndarray</span></code>. On obtient alors un <em>vecteur numpy</em> (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) et non une seule valeur.</p>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Il n&#39;est pas utile de redéfinir les incertitudes t1_u1u...</span>
+<span class="sd">Si vous avez exécuté le bloc précédent, elles sont en mémoire.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># INITIALISATION</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># Nombre de simulations réalisées.</span>
+<span class="n">c_sim</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Liste vide où on va stocker les valeurs</span>
+
+<span class="c1"># On simule ici N valeurs d&#39;un seul coup pour chaque mesurandes directs.</span>
+<span class="c1"># MODIFIER les différentes lignes pour l&#39;adapter aux exemples ici.</span>
+<span class="n">t1_sims</span> <span class="o">=</span> <span class="n">t1_m</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u1u</span><span class="p">,</span> <span class="n">t1_u1u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u2u</span><span class="p">,</span> <span class="n">t1_u2u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">t2_sims</span> <span class="o">=</span> <span class="n">t2_m</span>
+<span class="n">d1_sims</span> <span class="o">=</span> <span class="n">d1_m</span>
+<span class="n">d2_sims</span> <span class="o">=</span> <span class="n">d2_m</span> 
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    On reprend le même code que pour calculer une valeur de c.</span>
+<span class="sd">    Sauf qu&#39;on ne refait par le tirage aléatoire, on pioche juste dans les valeurs déjà simulées.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># MODIFIER ces lignes en vous aidant de la première.</span>
+    <span class="n">t1_sim</span> <span class="o">=</span> <span class="n">t1_sims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">t2_sim</span> <span class="o">=</span> <span class="n">t2_m</span>
+    <span class="n">d1_sim</span> <span class="o">=</span> <span class="n">d1_m</span>
+    <span class="n">d2_sim</span> <span class="o">=</span> <span class="n">d2_m</span> 
+
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># A modifier en le calcul comme précédemment (mais avec les t1_sim,...)</span>
+
+    <span class="n">c_sim</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># On stocke la valeur simulées</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Estimation de l&#39;incertitude de mesure</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">c_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">c_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(c) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c_u</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="monte-carlo-methode-3">
+<h4><span class="section-number">2.2.2.3. </span>Monte-Carlo : Méthode 3<a class="headerlink" href="#monte-carlo-methode-3" title="Permalink to this headline">#</a></h4>
+<p>On peut encore gagner du temps en utilisant la <strong>vectorialisation</strong>. En effet, les opérations pour obtenir <span class="math notranslate nohighlight">\(c\)</span> (soustractions et division) peut s’appliquer <strong>directement entre deux vecteurs numpy terme à terme.</strong></p>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Il n&#39;est pas utile de redéfinir les incertitudes t1_u1u...</span>
+<span class="sd">Si vous avez exécuté le bloc précédent, elles sont en mémoire.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
+
+<span class="c1"># INITIALISATION</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># Nombre de simulations réalisées.</span>
+<span class="n">c_sim</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Liste vide où on va stocker les valeurs</span>
+
+<span class="c1"># On simule ici N valeurs d&#39;un seul coup pour chaque mesurandes directs.</span>
+<span class="c1"># MODIFIER les différentes lignes pour l&#39;adapter aux exemples ici.</span>
+<span class="n">t1_sims</span> <span class="o">=</span> <span class="n">t1_m</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u1u</span><span class="p">,</span> <span class="n">t1_u1u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">t1_u2u</span><span class="p">,</span> <span class="n">t1_u2u</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">t2_sims</span> <span class="o">=</span> <span class="n">t2_m</span>
+<span class="n">d1_sims</span> <span class="o">=</span> <span class="n">d1_m</span>
+<span class="n">d2_sims</span> <span class="o">=</span> <span class="n">d2_m</span> 
+
+<span class="c1"># MODIFIER la ligne ci après en utilisant t1_sims, t2_sims... comme si c&#39;était de simple flottants.</span>
+<span class="c1"># Comme ce sont des vecteurs numpy, la vectorialisation appliquera la relation mathématiques terme à terme : c_sim est un vecteur.</span>
+<span class="n">c_sim</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c_sim</span><span class="p">))</span>  <span class="c1"># Observer en sortie que c_sim est bien un vecteur de taille N</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Déterminer l&#39;incertitude-type pour chaque mesurande t1, t2, d1 et d2</span>
-<span class="sd">On rappelle la fonction std(X, ddof=1) qui calculer l&#39;écart-type des éléments du vecteur X.</span>
-<span class="sd">ATTENTION, cette fonction fait partie de la bibliothèque numpy</span>
-<span class="sd">Pour l&#39;affichage :</span>
-<span class="sd">Enregistrer les incertitude-type dans des variables t1_u, t2_u, d1_u et d2_u.</span>
+<span class="sd">Estimation de l&#39;incertitude de mesure</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">t1_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">t1_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Ecart-type pour les échantillons simulés contenus dans t1_sim</span>
+<span class="n">c_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">c_sim</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(c) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c_u</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette dernière méthode, BEAUCOUP PLUS RAPIDE,  peut s’appliquer tant que les opérations mises en jeu sont vectorialisables par numpy soit:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+,-,/,*</span></code></p></li>
+<li><p>les fonctions usuelles <code class="docutils literal notranslate"><span class="pre">numpy.sin,</span> <span class="pre">numpy.cos,</span> <span class="pre">numpy.tan,</span> <span class="pre">numpy.log,</span> <span class="pre">numpy.exp...</span></code> <strong>à condition qu’elle proviennent de la bibliothèqe numpy et non la bibliothèque math.</strong></p></li>
+</ul>
+<p>Exception notoire:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> qui permet de faire des régression linéaire n’est pas vectorialisable.</p></li>
+</ul>
+</div>
+<div class="section" id="autre-avantage-des-methodes-2-et-3">
+<h4><span class="section-number">2.2.2.4. </span>Autre avantage des méthodes 2 et 3<a class="headerlink" href="#autre-avantage-des-methodes-2-et-3" title="Permalink to this headline">#</a></h4>
+<p>On obtient par ces méthodes une liste (vecteur pour être précis) de valeurs simulées aussi pour <span class="math notranslate nohighlight">\(t_1, t_2...\)</span>^. On peut donc aussi calculer l’incertitude-type pour ces grandeurs et donc en rendre-compte dans son compte-rendu. Ici:</p>
+<div class="cell tag_remove-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MODIFIER les lignes suivantes en s&#39;inspirant de la première</span>
+<span class="n">t1_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">t1_sims</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Incertitude sur t1</span>
 <span class="n">t2_u</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">d1_u</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">d2_u</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Les lignes ci-dessous vous donneront les résultats des estimations des incertitudes-type de mesures.</span>
-<span class="sd">ATTENTION : Les chiffres significatifs ne sont pas bons, à vous d&#39;arrondir.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t1 = &quot;</span><span class="p">,</span> <span class="n">t1_m</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t2 = &quot;</span><span class="p">,</span> <span class="n">t2_m</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d1 = &quot;</span><span class="p">,</span> <span class="n">d1_m</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d2 = &quot;</span><span class="p">,</span> <span class="n">d2_m</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(t1) = &quot;</span><span class="p">,</span> <span class="n">t1_u</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(t2) = &quot;</span><span class="p">,</span> <span class="n">t2_u</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(d1) = &quot;</span><span class="p">,</span> <span class="n">d1_u</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u(d2) = &quot;</span><span class="p">,</span> <span class="n">d2_u</span><span class="p">)</span>
-
-
-<span class="sd">&quot;&quot;&quot;Tracé graphique</span>
-<span class="sd">Les instructions sont données. Vous verrez ainsi comment tracer 4 graphiques </span>
-<span class="sd">dans une même fenêtre.</span>
-<span class="sd">A FAIRE : Pensez à changer l&#39;unité des valeurs (légende de l&#39;axe des abscisses suivant vos mesures).</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># Création d&#39;une fenêtre graphique avec 4 axes répartis sur 2 colonnes et 2 lignes.</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Distribution des mesurandes directs&quot;</span><span class="p">)</span>  <span class="c1"># Titre global</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">axs est un tableau contenant les 4 axes (=graphiques)</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="c1"># Tracé de t1</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t1_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;t1&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Valeurs (s)&quot;</span><span class="p">)</span>  <span class="c1"># Légende de l&#39;axe des abscisses</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Affichage de la légende (pour savoir que c&#39;est t1)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">t2_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;t2&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Valeurs (s)&quot;</span><span class="p">)</span>  <span class="c1"># Légende de l&#39;axe des abscisses</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d1_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;d1&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Valeurs (m)&quot;</span><span class="p">)</span>  <span class="c1"># Légende de l&#39;axe des abscisses</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;d2&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Valeurs (m)&quot;</span><span class="p">)</span>  <span class="c1"># Légende de l&#39;axe des abscisses</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t1 = </span><span class="si">{}</span><span class="s2"> +/- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1_m</span><span class="p">,</span> <span class="n">t1_u</span><span class="p">))</span>  <span class="c1"># Forme pas à connaître mais très utile pour afficher un texte complexe.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t2 = </span><span class="si">{}</span><span class="s2"> +/- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2_m</span><span class="p">,</span> <span class="n">t2_u</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d1 = </span><span class="si">{}</span><span class="s2"> +/- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d1_m</span><span class="p">,</span> <span class="n">d1_u</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;d2 = </span><span class="si">{}</span><span class="s2"> +/- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d2_m</span><span class="p">,</span> <span class="n">d2_u</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c = </span><span class="si">{}</span><span class="s2"> +/- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_m</span><span class="p">,</span> <span class="n">c_u</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>Pour analyser correctement les valeurs des mesurandes directs et leur incertitudes on va les afficher correctement, ce qui implique :</p>
-<ul class="simple">
-<li><p>de choisir où tronquer l’incertitude de mesure. On prendra l’habitude de ne garder que <strong>2 chiffres significatifs sur l’incertitude-type</strong>.</p></li>
-<li><p>de tronquer le résultat de mesurage en cohérence : sa précision (puissance de 10 du dernier chiffre affiché) doit être la même que l’incertitude-type.</p></li>
-</ul>
-<p>Grâce aux valeurs affichés précédemment, rendre-compte dans votre compte-rendu de la mesure de <span class="math notranslate nohighlight">\(t_1, t_2, d_1\)</span> et <span class="math notranslate nohighlight">\(d_2\)</span> en choisissant correctement l’arrondi de l’incertitude-type et de la valeur mesurée. <strong>On oubliera pas non plus l’unité.</strong></p>
-<p>Forme à donner :</p>
-<div class="math notranslate nohighlight">
-\[t_1 = ... \pm ...\rm{Unité}\]</div>
-<div class="math notranslate nohighlight">
-\[t_2 = ... \pm ...\rm{Unité}\]</div>
-<div class="math notranslate nohighlight">
-\[d_1 = ... \pm ...\rm{Unité}\]</div>
-<div class="math notranslate nohighlight">
-\[d_2 = ... \pm ...\rm{Unité}\]</div>
-</div>
-<div class="section" id="estimation-de-la-celerite-du-son-propagation-d-incertitude">
-<h2><span class="section-number">2.3. </span>Estimation de la célérité du son. Propagation d’incertitude.<a class="headerlink" href="#estimation-de-la-celerite-du-son-propagation-d-incertitude" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="votre-travail">
-<h3><span class="section-number">2.3.1. </span>Votre travail<a class="headerlink" href="#votre-travail" title="Permalink to this headline">¶</a></h3>
-<p>Vous devez utiliser les résultats précédents pour obtenir une estimation de la célérité du son et de son incertitude de mesure.</p>
-<p>Il n’est pas utile de refaire toute la simulation. Vous disposez déjà de N échantillons simulés pour <span class="math notranslate nohighlight">\(t_1,t_2, d_1, d_2\)</span> (<code class="docutils literal notranslate"><span class="pre">t1_sim,</span> <span class="pre">t2_sim,</span> <span class="pre">d1_sim,</span> <span class="pre">d2_sim</span></code>). Vous allez devoir:</p>
-<ol class="simple">
-<li><p>Créer deux vecteurs <code class="docutils literal notranslate"><span class="pre">dt_sim</span></code> et <code class="docutils literal notranslate"><span class="pre">D_sim</span></code> correspondent aux N simulations de tirages pour la durée de vol et la distance E-R</p></li>
-<li><p>Créer un vecteur <code class="docutils literal notranslate"><span class="pre">c_sim</span></code> contenant les N simulations des valeurs de la célérité du son</p></li>
-<li><p>Obtenir la moyenne <code class="docutils literal notranslate"><span class="pre">cm</span></code> et l’écart-type <code class="docutils literal notranslate"><span class="pre">uc</span></code> du vecteur <code class="docutils literal notranslate"><span class="pre">c_sim</span></code>.</p></li>
-<li><p>Tracer l’histogramme des valeurs simulés de la célérité <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p></li>
-</ol>
-</div>
-<div class="section" id="a-vous-de-coder">
-<h3><span class="section-number">2.3.2. </span>A vous de coder<a class="headerlink" href="#a-vous-de-coder" title="Permalink to this headline">¶</a></h3>
-<p>Une bonne partie du code est déjà donnée. Compléter les relations utiles.</p>
-<div class="cell tag_remove-output tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Il n&#39;est pas nécessaire de réimporter les bibliothèques puisque vous les avez déjà importés.</span>
-<span class="sd">Modifier les formules lorsque c&#39;et nécessaire.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">dt_sim</span> <span class="o">=</span> <span class="n">t2_sim</span> <span class="o">-</span> <span class="n">t1_sim</span>  <span class="c1"># Simulation des temps de vol</span>
-<span class="n">D_sim</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Simulation des distances</span>
-
-<span class="n">c_sim</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Simulation des célérités</span>
-
-<span class="n">cm</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Utiliser la cellule précédente pour calculer la moyenne de la célérité à partir de c_sim</span>
-<span class="n">uc</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Utiliser la cellule précédente pour calculer l&#39;incertitude sur la célérité à partir de c_sim</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Tracé graphique</span>
-<span class="sd">Pensez bien à légender les axes</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># Création d&#39;une fenêtre graphique avec 4 axes répartis sur 2 colonnes et 2 lignes.</span>
-<span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Distribution des mesurandes directs&quot;</span><span class="p">)</span>  <span class="c1"># Titre global</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;?????&quot;</span><span class="p">)</span>  <span class="c1"># Légende de l&#39;axe des abscisses</span>
-
-<span class="c1"># Tracé de t1</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">c_sim</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;rice&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Les lignes ci-dessous afficheront les résultats sans tenir compte des chiffres significatifs</span>
-<span class="sd">attention aux noms de variables</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c = &quot;</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uc = &quot;</span><span class="p">,</span> <span class="n">uc</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="rendez-compte-de-votre-mesure">
-<h3><span class="section-number">2.3.3. </span>Rendez-compte de votre mesure<a class="headerlink" href="#rendez-compte-de-votre-mesure" title="Permalink to this headline">¶</a></h3>
-<p>L’affichage précédent n’est pas acceptable car :</p>
+<h3><span class="section-number">2.2.3. </span>Rendez-compte de votre mesure<a class="headerlink" href="#rendez-compte-de-votre-mesure" title="Permalink to this headline">#</a></h3>
+<p>L’affichage précédent n’<strong>est pas acceptable</strong> car :</p>
 <ul class="simple">
 <li><p>il affiche trop de chiffres</p></li>
 <li><p>il ne donne pas l’unité.</p></li>
 </ul>
-<p><strong>Un résultat de mesure unique avec incertitude doit s’écrire sous la forme :</strong>
-$<span class="math notranslate nohighlight">\(
+<p><strong>Un résultat de mesure unique avec incertitude doit s’écrire sous la forme :</strong></p>
+<div class="math notranslate nohighlight">
+\[
 G = (G_{mes} \pm u(G)) \rm{Unités}
-\)</span>$</p>
+\]</div>
 <p>Vous devez respectez les contraintes suivantes :</p>
 <ul class="simple">
 <li><p>L’incertitude de mesure doit avoir 2 chiffres significatifs</p></li>
@@ -595,7 +818,7 @@ c = (Resultat de mesurage \pm Incertitude) (Facultatif: \times Puissance de 10) 
 </div>
 </div>
 <div class="section" id="donnees-theoriques">
-<h2><span class="section-number">2.4. </span>Données théoriques<a class="headerlink" href="#donnees-theoriques" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Données théoriques<a class="headerlink" href="#donnees-theoriques" title="Permalink to this headline">#</a></h2>
 <p>D’après la littérature, la célérité du son dépend de la température et peut être approximée par la fonction :</p>
 <div class="math notranslate nohighlight">
 \[
@@ -605,15 +828,31 @@ c_{air} = 331,5 + 0,607 \theta
 <p><em>(Robert N. Compton et Michael A. Duncan, Laser Experiments for Chemistry and Physics)</em></p>
 <blockquote>
 <div><ol class="simple">
-<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">cel_T(T)</span></code> qui prend comme argument un flottant (température T) et qui renvoie un flottant : la célérité(en m/s)</p></li>
-<li><p>Calculer l’écart normalisé entre la célérité estimée par votre mesure et celle donnée par la littérature (par manque d’information, on considèrera que cette valeur n’a pas d’incertitude (incertitude nulle)). Conclure quant à la compatibilité entre votre expérience et le modèle proposé.</p></li>
+<li><p>Ecrire une fonction <code class="docutils literal notranslate"><span class="pre">cel_T(T)</span></code> qui prend comme argument un flottant (température T) et qui renvoie un flottant : la célérité(en m/s). L’utiliser pour estimer la celérité attendue.</p></li>
+<li><p>Estimer, on moyen d’une simulation Monte-Carlo l’incertitude sur la célérité attendue en supposant que la seule source d’incertitude vient de la mesure de la température.</p></li>
+<li><p>Calculer l’écart normalisé entre la célérité estimée par votre mesure et celle donnée par la littérature. Conclure quant à la compatibilité entre votre expérience et le modèle proposé.</p></li>
 </ol>
 </div></blockquote>
+<p>Pour rappel, l’écart-normalisé est:</p>
+<div class="math notranslate nohighlight">
+\[
+EN = \frac{\left\vert c_{exp} - c_{attendue} \right\vert}{\sqrt{u(c_{exp})^2 + u(c_{attendue})^2}}
+\]</div>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cel_T</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Fonction renvoie la célérité pour une température T&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="kc">True</span>
+
+<span class="sd">&quot;&quot;&quot;Estimation de c_attendue&quot;&quot;&quot;</span>
+
+
+
+
+<span class="sd">&quot;&quot;&quot;Estimation de l&#39;incertitude sur c_atttendue&quot;&quot;&quot;</span>
+
+
+
 
 <span class="sd">&quot;&quot;&quot;Calculer l&#39;écart normalisé.&quot;&quot;&quot;</span>
 <span class="n">en</span> <span class="o">=</span> <span class="mi">0</span>
@@ -652,9 +891,11 @@ c_{air} = 331,5 + 0,607 \theta
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="exo_protocole.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -670,26 +911,28 @@ c_{air} = 331,5 + 0,607 \theta
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By C. Lacpatia<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By C. Lacpatia<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

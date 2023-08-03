@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4. (TP) Utilisation d’une régression linéaire. (1h) &#8212; Méthodes expérimentales - Introduction</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,39 +19,38 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://pcsi3physiquestan.github.io/tp1_methodes/notebook/exo_comparaison.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -63,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -87,14 +102,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../tp1_methodes.html">
-   Méthodes expérimentales
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../tp1_methodes.html">
+                    Méthodes expérimentales
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Mesure unique
  </span>
@@ -142,12 +158,17 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href="https://www.cedriclacpatia.fr">Site de la classe</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -155,87 +176,249 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+    <div class="header-article row sticky-top noprint">
+        
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/notebook/exo_comparaison.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebook/exo_comparaison.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_comparaison.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebook/exo_comparaison.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/notebook/exo_comparaison.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/notebook/exo_comparaison.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
     </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possibilite-d-un-modele-lineaire">
+   4.1. Possibilité d’un modèle linéaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajustement-lineaire">
+   4.2. Ajustement linéaire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimation-de-c">
+     4.2.1. Estimation de c
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#incertitude-sur-c">
+     4.2.2. Incertitude sur c
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verifier-la-compatibilite-du-modele">
+   4.3. Vérifier la compatibilité du modèle
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
     </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>(TP) Utilisation d’une régression linéaire. (1h)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#possibilite-d-un-modele-lineaire">
+   4.1. Possibilité d’un modèle linéaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajustement-lineaire">
+   4.2. Ajustement linéaire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimation-de-c">
+     4.2.1. Estimation de c
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#incertitude-sur-c">
+     4.2.2. Incertitude sur c
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verifier-la-compatibilite-du-modele">
+   4.3. Vérifier la compatibilité du modèle
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <p>Vous allez maintenant mettre en oeuvre l’utilisation de l’écart normalisé et de la régression linéaire pour comparer les valeurs expérimentales avec la valeur théorique.</p>
 <div class="tex2jax_ignore mathjax_ignore section" id="tp-utilisation-d-une-regression-lineaire-1h">
-<h1><span class="section-number">4. </span>(TP) Utilisation d’une régression linéaire. (1h)<a class="headerlink" href="#tp-utilisation-d-une-regression-lineaire-1h" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>(TP) Utilisation d’une régression linéaire. (1h)<a class="headerlink" href="#tp-utilisation-d-une-regression-lineaire-1h" title="Permalink to this headline">#</a></h1>
 <p>Vous allez utiliser les cellules suivantes pour réaliser une régression linéaire à partir de la relation <span class="math notranslate nohighlight">\(d = c \Delta t\)</span>. Vous devrez :</p>
 <ul class="simple">
 <li><p>Vérifier la compatibilité avec le modèle linéaire par régression linéaire et tracé graphique (pensez aux écarts normalisés)</p></li>
@@ -243,6 +426,8 @@
 <li><p>Comparer la valeur estimée aux attentes.</p></li>
 </ul>
 <p>Pensez à regarder aussi <a class="reference external" href="https://pcsi3physiquestan.github.io/tp_incertitude/notebook/exemple.html">l’exemple complet</a> pour comprendre.</p>
+<div class="section" id="possibilite-d-un-modele-lineaire">
+<h2><span class="section-number">4.1. </span>Possibilité d’un modèle linéaire<a class="headerlink" href="#possibilite-d-un-modele-lineaire" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -282,6 +467,42 @@
 </div>
 </div>
 <p><em>Vérifiez que l’hypothèse d’une loi linéaire est plausible.</em></p>
+</div>
+<div class="section" id="ajustement-lineaire">
+<h2><span class="section-number">4.2. </span>Ajustement linéaire<a class="headerlink" href="#ajustement-lineaire" title="Permalink to this headline">#</a></h2>
+<div class="section" id="estimation-de-c">
+<h3><span class="section-number">4.2.1. </span>Estimation de c<a class="headerlink" href="#estimation-de-c" title="Permalink to this headline">#</a></h3>
+<p>On réalise un ajustement linéaire simple pour obtenir la pente et donc une estimation de c. Comme <span class="math notranslate nohighlight">\(\Delta t\)</span> est plus incertain que <span class="math notranslate nohighlight">\(d\)</span>, on choisi <span class="math notranslate nohighlight">\(\Delta t\)</span> comme ordonnée. On calcule donc <span class="math notranslate nohighlight">\(1/c\)</span> qu’on inverse ensuite.</p>
+<div class="cell tag_hide-output tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">par_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Régression linéaire</span>
+<span class="n">c_m</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">par_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># La célérité est l&#39;inverse de la pente</span>
+<span class="n">ordo_m</span> <span class="o">=</span> <span class="n">par_m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># On stocke aussi l&#39;ordonnée à l&#39;origine pour test ultérieur.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c_m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33333333333333326
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="incertitude-sur-c">
+<h3><span class="section-number">4.2.2. </span>Incertitude sur c<a class="headerlink" href="#incertitude-sur-c" title="Permalink to this headline">#</a></h3>
+<p>On ne peut utiliser la vectorialisation, donc on va utiliser la méthode 2 : on crée les N échantillons simulées d’un coup mais on réalise l’ajustement linéaire puis la détermination de <span class="math notranslate nohighlight">\(c\)</span> dans une boucle, on stocke les valeurs et on calcule à la fin l’incertitude.</p>
+<p><em>Petite nouveauté : On utilise une syntaxe pour <code class="docutils literal notranslate"><span class="pre">numpy.random.uniform</span></code> qui permet de créer d’un seul coup les aleurs simulées pour TOUS les échantillons et de le stocker dans un tableau de taille (N, k) où k est le nombre de mesures:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">list</span><span class="o">/</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">list</span><span class="o">/</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">size</span> <span class="p">:</span><span class="nb">tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>avec:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> et les <code class="docutils literal notranslate"><span class="pre">b</span></code> deux listes, ici <code class="docutils literal notranslate"><span class="pre">-ud</span></code> et <code class="docutils literal notranslate"><span class="pre">ud</span></code> (ou <code class="docutils literal notranslate"><span class="pre">-udt</span></code> et <code class="docutils literal notranslate"><span class="pre">udt</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code> est un tuple donnant la taille du tableau à remplir (ici <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">k)</span></code> avec <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">len(d)</span></code> ou <code class="docutils literal notranslate"><span class="pre">len(dt)</span></code>)
+La ligne <code class="docutils literal notranslate"><span class="pre">j</span></code>du tableau (donc un jeu de valeurs simulées) s’obtiendra par <code class="docutils literal notranslate"><span class="pre">tableau[j]</span></code>.</p></li>
+</ul>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -297,15 +518,15 @@
 <span class="sd">On crée directement des tableaux de N*k échantillons simulés pour d et dt</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="n">d_sim</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">ud</span><span class="p">,</span> <span class="n">ud</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
-<span class="n">dt_sim</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">udt</span><span class="p">,</span> <span class="n">udt</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+<span class="n">d_sim</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">ud</span><span class="p">,</span> <span class="n">ud</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+<span class="n">dt_sim</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">rd</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">udt</span><span class="p">,</span> <span class="n">udt</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
 
 <span class="sd">&quot;&quot;&quot; REGRESSIONS LINEAIRES</span>
 <span class="sd">Réalisation des N régressions linéaires au moyen d&#39;une boucle</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">c_sim</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># On stockera les célérité dans cette liste.</span>
 <span class="n">ordo_sim</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># On conserve aussi les ordonnées à l&#39;origine</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="n">On</span> <span class="n">parcourt</span> <span class="n">les</span> <span class="n">N</span> <span class="n">échantillons</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="c1"># On parcourt les N échantillons</span>
     <span class="n">d_e</span> <span class="o">=</span> <span class="n">d_sim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># Sélection des distances simulées</span>
     <span class="n">dt_e</span> <span class="o">=</span> <span class="n">dt_sim</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># Sélection des temps de vol simulés</span>
     <span class="n">par_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">d_e</span><span class="p">,</span> <span class="n">dt_e</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Régression linéaire</span>
@@ -317,9 +538,7 @@
 <span class="sd">&quot;&quot;&quot; -------------------------------------------------------</span>
 <span class="sd">A VOUS DE CODER : Détermination des valeurs utiles</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">c_m</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ecrire ici l&#39;instruction permettant d&#39;avoir la célérité estimée à partir de c_sim</span>
 <span class="n">c_u</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ecrire ici l&#39;instruction permettant d&#39;avoir l&#39;incertitude sur la célérité estimée à partir de c_sim</span>
-<span class="n">ordo_m</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ecrire ici l&#39;instruction permettant d&#39;avoir l&#39;ordonnée à l&#39;origine estimée à partir de ordo_sim</span>
 <span class="n">ordo_u</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ecrire ici l&#39;instruction permettant d&#39;avoir son incertitude à partir de ordo_sim</span>
 
 <span class="sd">&quot;&quot;&quot; FIN DE LA PARTIE A MODIER &quot;&quot;&quot;</span>
@@ -333,7 +552,16 @@
 </div>
 </div>
 </div>
-<p><em>Réfléchir à l’utilisation possible de l’ordonnée à l’origine.</em></p>
+</div>
+</div>
+<div class="section" id="verifier-la-compatibilite-du-modele">
+<h2><span class="section-number">4.3. </span>Vérifier la compatibilité du modèle<a class="headerlink" href="#verifier-la-compatibilite-du-modele" title="Permalink to this headline">#</a></h2>
+<p>Lorsqu’on réalise un ajustement, on DOIT vérifier si cet ajustement est compatible avec les données expérimentales (<em>pensez qu’on peut mathématiquement n’importe quelle jeu de valeurs, même si elles ne sont pas alignées !</em>). Il existe deux méthodes :</p>
+<ul class="simple">
+<li><p>la vérification visuelle par un tracé graphique. <strong>Elle est obligatoire</strong>.</p></li>
+<li><p>le calcul d’écart normalisée pour des tests de cohérences. Il devient nécessaire seulement si la vérification visuelle ne permet pas de conclure.
+Pour s’entrainer, on va faire les deux.</p></li>
+</ul>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -348,7 +576,7 @@
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Etude de la célérité du son&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Distance cm)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temps de vole (ms)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temps de vol (ms)&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">ud</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">udt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Données expérimentales&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 
@@ -386,9 +614,10 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">------- TEST DE COMPATIBILITE DE C -----------</span>
 <span class="sd">Vérifier par un calcul d&#39;écart normalisé que la valeur estimée de la célérité</span>
-<span class="sd">est compatible avec les données théoriques.</span>
+<span class="sd">est compatible avec les données théoriques (attention, cel_T est à redéfinir).</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -416,9 +645,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="exo_graphique.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -434,26 +665,28 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By C. Lacpatia<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By C. Lacpatia<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
